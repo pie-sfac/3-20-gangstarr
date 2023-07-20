@@ -1,4 +1,4 @@
-// import React from 'react';
+import React from 'react';
 import { primaryDefault } from '../styles/test';
 import { styled } from 'styled-components';
 
