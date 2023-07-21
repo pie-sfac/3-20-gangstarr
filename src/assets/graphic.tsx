@@ -1,4 +1,4 @@
-export const graphic: { [name: string]: () => JSX.Element } = {
+export const graphic = {
   logo: () => (
     <svg
       width='54'
