@@ -1,4 +1,4 @@
-import { graphic } from '../graphic';
+import { graphic } from '../assets/graphic';
 
 export type graphicKey = keyof typeof graphic;
 

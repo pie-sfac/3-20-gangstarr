@@ -1,11 +1,11 @@
 import { Reset } from 'styled-reset';
-import Icon from './assets/Icon';
+import { Icon } from './components/icon';
 
 function App() {
   return (
     <>
       <Reset />
-      <Icon name={'offVisibilty'} />
+      <Icon name='add'></Icon>
     </>
   );
 }
