@@ -1,11 +1,11 @@
 import { Reset } from 'styled-reset';
-import IconRander from './assets/IconRander';
+import Icon from './assets/Icon';
 
 function App() {
   return (
     <>
       <Reset />
-      <IconRander name={'offVisibilty'} />
+      <Icon name={'offVisibilty'} />
     </>
   );
 }
