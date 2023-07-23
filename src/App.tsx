@@ -10,17 +10,11 @@ const ButtonBox = styled.div`
 `;
 
 function App() {
-  const handleClick = () => {
-    console.log('hello');
-  };
-
   return (
     <>
       <Reset />
       <ButtonBox>
-        <Button size='full' onClick={handleClick}>
-          텍스트
-        </Button>
+        <Button size='full'>텍스트</Button>
       </ButtonBox>
     </>
   );
