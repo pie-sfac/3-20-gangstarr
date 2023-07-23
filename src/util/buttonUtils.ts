@@ -6,7 +6,7 @@ export const getStyleOptions = (
   fill: IbuttonProps['fill'] = 'contained',
   mode: IbuttonProps['mode'] = 'nomal',
 ): IbuttonStyleProps => {
-  let styleOptios = {
+  const styleOptios = {
     ...buttonStyles[size],
     ...buttonStyles[mode][fill],
   };
