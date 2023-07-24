@@ -50,42 +50,42 @@ export const Title6 = styled.h6`
   line-height: ${typography.title6.lineHeight};
 `;
 
-export const Body1 = styled.body`
+export const Body1 = styled.span`
   font-family: ${typography.fontFamily};
   font-size: ${typography.body1.fontSize};
   font-weight: ${typography.body1.fontWeight};
   line-height: ${typography.body1.lineHeight};
 `;
 
-export const Body2 = styled.body`
+export const Body2 = styled.span`
   font-family: ${typography.fontFamily};
   font-size: ${typography.body2.fontSize};
   font-weight: ${typography.body2.fontWeight};
   line-height: ${typography.body2.lineHeight};
 `;
 
-export const Body3 = styled.body`
+export const Body3 = styled.span`
   font-family: ${typography.fontFamily};
   font-size: ${typography.body3.fontSize};
   font-weight: ${typography.body3.fontWeight};
   line-height: ${typography.body3.lineHeight};
 `;
 
-export const Body4 = styled.body`
+export const Body4 = styled.span`
   font-family: ${typography.fontFamily};
   font-size: ${typography.body4.fontSize};
   font-weight: ${typography.body4.fontWeight};
   line-height: ${typography.body4.lineHeight};
 `;
 
-export const Caption1 = styled.caption`
+export const Caption1 = styled.span`
   font-family: ${typography.fontFamily};
   font-size: ${typography.caption1.fontSize};
   font-weight: ${typography.caption1.fontWeight};
   line-height: ${typography.caption1.lineHeight};
 `;
 
-export const Caption2 = styled.caption`
+export const Caption2 = styled.span`
   font-family: ${typography.fontFamily};
   font-size: ${typography.caption2.fontSize};
   font-weight: ${typography.caption2.fontWeight};

@@ -13,29 +13,29 @@ export const typography = {
     lineHeight: font.lineHeight.lineHeight110,
   },
   title2: {
-    fontSize: font.fontSize.fontSize38,
+    fontSize: font.fontSize.fontSize36,
     fontWeight: font.fontWeight.fontWeightBold,
     lineHeight: font.lineHeight.lineHeight110,
   },
   title3: {
-    fontSize: font.fontSize.fontSize38,
+    fontSize: font.fontSize.fontSize32,
     fontWeight: font.fontWeight.fontWeightBold,
-    lineHeight: font.lineHeight.lineHeight110,
+    lineHeight: font.lineHeight.lineHeight128,
   },
   title4: {
-    fontSize: font.fontSize.fontSize38,
+    fontSize: font.fontSize.fontSize26,
     fontWeight: font.fontWeight.fontWeightBold,
-    lineHeight: font.lineHeight.lineHeight110,
+    lineHeight: font.lineHeight.lineHeight136,
   },
   title5: {
-    fontSize: font.fontSize.fontSize38,
+    fontSize: font.fontSize.fontSize20,
     fontWeight: font.fontWeight.fontWeightBold,
-    lineHeight: font.lineHeight.lineHeight110,
+    lineHeight: font.lineHeight.lineHeight136,
   },
   title6: {
-    fontSize: font.fontSize.fontSize38,
+    fontSize: font.fontSize.fontSize16,
     fontWeight: font.fontWeight.fontWeightBold,
-    lineHeight: font.lineHeight.lineHeight110,
+    lineHeight: font.lineHeight.lineHeight136,
   },
   body1: {
     fontSize: font.fontSize.fontSize16,
@@ -60,11 +60,11 @@ export const typography = {
   caption1: {
     fontSize: font.fontSize.fontSize12,
     fontWeight: font.fontWeight.fontWeightRegular,
-    lineHeight: font.lineHeight.lineHeight144,
+    lineHeight: font.lineHeight.lineHeight128,
   },
   caption2: {
     fontSize: font.fontSize.fontSize10,
     fontWeight: font.fontWeight.fontWeightRegular,
-    lineHeight: font.lineHeight.lineHeight144,
+    lineHeight: font.lineHeight.lineHeight128,
   },
 };
