@@ -34,7 +34,7 @@ export const buttonStyles = {
   xsmall: {
     width: '48px',
     height: '31px',
-    padding: '8px',
+    padding: '7px',
     fontSize: font.fontSize.fontSize12,
   },
   contained: {
