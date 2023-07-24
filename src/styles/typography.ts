@@ -1,7 +1,6 @@
 import { font } from '.';
 
 export const typography = {
-  fontFamily: font.fontFamily,
   headline: {
     fontSize: font.fontSize.fontSize40,
     fontWeight: font.fontWeight.fontWeightBold,
