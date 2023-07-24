@@ -1,6 +1,7 @@
 import { Reset } from 'styled-reset';
 import { styled } from 'styled-components';
 import Button from './components/Button';
+import { Headline } from './components/Typography';
 
 const ButtonBox = styled.div`
   display: flex;
@@ -111,6 +112,7 @@ function App() {
           텍스트
         </Button>
       </ButtonBox>
+      <Headline>HEEEEEE</Headline>
     </>
   );
 }
