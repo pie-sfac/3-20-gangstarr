@@ -2,8 +2,17 @@ import { Reset } from 'styled-reset';
 import { styled } from 'styled-components';
 import Button from './components/Button';
 import { Headline } from './components/Typography';
+import {
+  Dialog,
+  DialogButton,
+  DialogButtonBox,
+  DialogContenets,
+  DialogDescription,
+  DialogTitle,
+} from './components/Dialog';
+import { useState } from 'react';
 
-const ButtonBox = styled.div`
+const ButtonContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 30px;
@@ -11,10 +20,12 @@ const ButtonBox = styled.div`
 `;
 
 function App() {
+  const [isHide, setIsHide] = useState(false);
+
   return (
     <>
       <Reset />
-      <ButtonBox>
+      <ButtonContainer>
         <Button size='full'>텍스트</Button>
         <Button size='xlarge'>텍스트</Button>
         <Button size='large'>텍스트</Button>
@@ -111,8 +122,29 @@ function App() {
         <Button size='xsmall' fill='outline' disabled>
           텍스트
         </Button>
-      </ButtonBox>
+      </ButtonContainer>
       <Headline>HEEEEEE</Headline>
+      <Button onClick={() => setIsHide(true)}>다이얼로그</Button>
+      <Dialog isHide={isHide} onHanndleHide={() => setIsHide(false)}>
+        <DialogContenets>
+          <DialogTitle>수강권 재진행</DialogTitle>
+          <DialogDescription>
+            해당 수강권을 재진행하시겠습니까? <br />
+            일시 중단이 해제됩니다.
+          </DialogDescription>
+          <DialogButtonBox>
+            <DialogButton size='medium' onClick={() => setIsHide(false)}>
+              아니요
+            </DialogButton>
+            <DialogButton
+              size='medium'
+              mode='enabled'
+              onClick={() => setIsHide(false)}>
+              예, 재진행
+            </DialogButton>
+          </DialogButtonBox>
+        </DialogContenets>
+      </Dialog>
     </>
   );
 }
