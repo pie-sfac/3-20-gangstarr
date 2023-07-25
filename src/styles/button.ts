@@ -41,7 +41,7 @@ export const buttonStyles = {
     border: 'none',
   },
   outline: {
-    nomal: {
+    normal: {
       border: `1px solid ${color.borderLine300}`,
     },
     enabled: {
@@ -51,7 +51,7 @@ export const buttonStyles = {
       border: `1px solid ${color.borderLine300}`,
     },
   },
-  nomal: {
+  normal: {
     contained: {
       color: color.textGray900,
       background: color.gray100,

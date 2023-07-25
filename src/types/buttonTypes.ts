@@ -3,7 +3,7 @@ export interface IbuttonProps
   children: string;
   size?: 'full' | 'xlarge' | 'large' | 'medium' | 'small' | 'xsmall';
   fill?: 'contained' | 'outline';
-  mode?: 'nomal' | 'enabled' | 'disabled';
+  mode?: 'normal' | 'enabled' | 'disabled';
 }
 
 export interface IbuttonStyleProps {
