@@ -1,13 +1,26 @@
 import { styled } from 'styled-components';
 import { Icon, Graphic } from './icon';
-import { ITopNavigationBarProps } from '../types/TopNavigationBarTypes';
+import {
+  ITopNavigationBarProps,
+  ITabStylesProps,
+} from '../types/TopNavigationBarTypes';
+import { useState } from 'react';
 
 const TopNavigationBar = ({
   tapMenuLists,
   userData,
 }: ITopNavigationBarProps) => {
-  const tapList = tapMenuLists?.map((tapItem) => (
-    <TapItem key={tapItem.tapName} href={tapItem.path}>
+  const [selected, setSelected] = useState(0);
+
+  const tapList = tapMenuLists?.map((tapItem, index) => (
+    <TapItem
+      key={tapItem.tapName}
+      href={tapItem.path}
+      selected={selected === index ? true : false}
+      onClick={(event) => {
+        event.preventDefault();
+        setSelected(index);
+      }}>
       {tapItem.tapName}
     </TapItem>
   ));
@@ -86,9 +99,9 @@ const Line = styled.div`
   background: #e7e7e7;
 `;
 
-const TapItem = styled.a`
+const TapItem = styled.a<ITabStylesProps>`
   text-decoration: none;
-  color: black;
+  color: ${(props) => (props.selected ? 'blue' : 'black')};
 `;
 
 const UserData = styled.div`

@@ -8,3 +8,7 @@ export interface ITopNavigationBarProps {
 export interface IUserData {
   name: string;
 }
+
+export interface ITabStylesProps {
+  selected: boolean;
+}

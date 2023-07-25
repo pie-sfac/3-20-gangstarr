@@ -8,7 +8,7 @@ const tapMenuLists = [
   { tapName: '미디어 관리', path: 'Member' },
   { tapName: '운영 데이터', path: 'Center' },
   { tapName: '알림메시지', path: 'MyPage' },
-  { tapName: '센터 정보', path: 'Home' },
+  { tapName: '센터 정보', path: '#' },
 ];
 
 const userData: IUserData = {
