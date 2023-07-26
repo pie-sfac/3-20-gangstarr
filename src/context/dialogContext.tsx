@@ -3,7 +3,7 @@ import { IDialogContext } from '../types/dialogTypes';
 
 export const DialogContext = createContext<IDialogContext>({
   isVisible: true,
-  dispatch: () => {},
+  dispatch: () => undefined,
 });
 
 export const DialogReducer = (state: boolean, action: 'TRUE' | 'FALSE') => {
