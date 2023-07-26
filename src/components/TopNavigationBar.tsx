@@ -5,6 +5,7 @@ import {
   ITabStylesProps,
 } from '../types/TopNavigationBarTypes';
 import { useState } from 'react';
+import { color } from '../styles';
 
 const TopNavigationBar = ({
   tapMenuLists,
@@ -55,10 +56,10 @@ const TopNavigationBar = ({
 export default TopNavigationBar;
 
 const NavigationLayout = styled.div`
-  border-bottom: 1px solid #e7e7e7;
+  border-bottom: 1px solid ${color.gray200};
   width: 1024px;
   height: 50px;
-  background: #ffffff;
+  background: ${color.basicWhite};
   padding-left: 24px;
   padding-right: 13px;
 
@@ -96,12 +97,12 @@ const MenuTap = styled.div`
 const Line = styled.div`
   width: 1px;
   height: 22px;
-  background: #e7e7e7;
+  background: ${color.gray200};
 `;
 
 const TapItem = styled.a<ITabStylesProps>`
   text-decoration: none;
-  color: ${(props) => (props.selected ? 'blue' : 'black')};
+  color: ${(props) => (props.selected ? color.primary500 : color.gray900)};
 `;
 
 const UserData = styled.div`
