@@ -7,19 +7,16 @@ const LabelContainer = styled.div<{
 }>`
   width: ${({ $styleOptions }) => $styleOptions.width};
   height: ${({ $styleOptions }) => $styleOptions.height};
-  padding: ${({ $styleOptions }) => $styleOptions.padding};
   border-radius: ${({ $styleOptions }) => $styleOptions.borderRadius};
   background: ${({ $styleOptions }) => $styleOptions.background};
   color: ${({ $styleOptions }) => $styleOptions.color};
   font-size: ${({ $styleOptions }) => $styleOptions.fontSize};
-  font-family: ${({ $styleOptions }) => $styleOptions.fontFamily};
   font-weight: ${({ $styleOptions }) => $styleOptions.fontWeight};
   line-height: ${({ $styleOptions }) => $styleOptions.lineHeight};
-  display: ${({ $styleOptions }) => $styleOptions.display};
-  justify-content: ${({ $styleOptions }) => $styleOptions.justifyContent};
-  align-items: ${({ $styleOptions }) => $styleOptions.alignItems};
-  box-sizing: ${({ $styleOptions }) => $styleOptions.boxSizing};
-  gap: ${({ $styleOptions }) => $styleOptions.gap};
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4px 8px;
 `;
 
 const Label = ({
