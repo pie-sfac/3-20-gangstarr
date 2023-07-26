@@ -8,9 +8,10 @@ export const labelStyles = {
     height: '21px',
     borderRadius: '4px',
     padding: '4px 8px',
-    display: 'flex',
+    display: 'inline-flex',
     justifyContent: 'center',
     alignItems: 'center',
+    gap: '10px',
   },
   medium: {
     boxSizing: 'border-box',
@@ -18,9 +19,10 @@ export const labelStyles = {
     height: '21px',
     borderRadius: '4px',
     padding: '4px 8px',
-    display: 'flex',
+    display: 'inline-flex',
     justifyContent: 'center',
     alignItems: 'center',
+    gap: '10px',
   },
   large: {
     boxSizing: 'border-box',
@@ -28,9 +30,10 @@ export const labelStyles = {
     height: '23px',
     borderRadius: '100px',
     padding: '4px 8px',
-    display: 'flex',
+    display: 'inline-flex',
     justifyContent: 'center',
     alignItems: 'center',
+    gap: '10px',
   },
   background: {
     blue: {

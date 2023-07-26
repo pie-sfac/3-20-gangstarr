@@ -19,6 +19,7 @@ const LabelContainer = styled.div<{
   justify-content: ${({ $styleOptions }) => $styleOptions.justifyContent};
   align-items: ${({ $styleOptions }) => $styleOptions.alignItems};
   box-sizing: ${({ $styleOptions }) => $styleOptions.boxSizing};
+  gap: ${({ $styleOptions }) => $styleOptions.gap};
 `;
 
 const Label = ({

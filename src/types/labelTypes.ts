@@ -21,4 +21,5 @@ export interface IlabelStyleProps {
   justifyContent: string;
   alignItems: string;
   boxSizing: string;
+  gap: string;
 }
