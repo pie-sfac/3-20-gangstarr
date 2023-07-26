@@ -1,7 +1,7 @@
 import { labelStyles } from '../components/label/label';
 import { IlabelProps, IlabelStyleProps } from '../types/labelTypes';
 
-export const getStyleOptions = (
+export const getLabelStyleOptions = (
   size: IlabelProps['size'] = 'medium',
   background: IlabelProps['background'] = 'blue',
   color: IlabelProps['color'] = 'blue500',

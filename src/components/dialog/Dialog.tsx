@@ -8,7 +8,7 @@ import useOutsideClick from '../../hooks/useOutsideClick';
 import { Button } from '../button';
 import useDialogDispatch from '../../hooks/useDialogDispatch';
 import { DialogContext, DialogReducer } from '../../context/dialogContext';
-import { onCloseModal } from '../../util/dialogUtils';
+import { onCloseModal } from '../../util';
 
 const fadeIn = keyframes`
   0% {
@@ -35,7 +35,7 @@ const DialogContainer = styled.div<{ $isVisible: boolean }>`
   min-width: 100vw;
   min-height: 100vh;
   height: 100%;
-  background: ${color.backgound};
+  background: ${color.background};
   animation: ${({ $isVisible }) => ($isVisible ? fadeIn : fadeOut)} 0.3s ease-in;
   visibility: ${({ $isVisible }) => ($isVisible ? 'visible' : 'hidden')};
   transition: visibility 0.3s ease-out;

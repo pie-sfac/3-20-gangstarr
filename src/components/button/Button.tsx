@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 import { color } from '../../styles';
 import { IbuttonProps, IbuttonStyleProps } from '../../types/buttonTypes';
-import { getStyleOptions } from '../../util';
+import { getButtonStyleOptions } from '../../util';
 
 const ButtonContainer = styled.button<{
   $styleOptions: IbuttonStyleProps;
@@ -45,7 +45,7 @@ export const Button = ({
   return (
     <>
       <ButtonContainer
-        $styleOptions={getStyleOptions(size, fill, mode)}
+        $styleOptions={getButtonStyleOptions(size, fill, mode)}
         $isOutline={fill === 'outline'}
         disabled={mode === 'disabled'}
         {...props}>
