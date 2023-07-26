@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
-import { color } from '../styles';
-import { IbuttonProps, IbuttonStyleProps } from '../types/buttonTypes';
-import { getStyleOptions } from '../util';
+import { color } from '../../styles';
+import { IbuttonProps, IbuttonStyleProps } from '../../types/buttonTypes';
+import { getStyleOptions } from '../../util';
 
 const ButtonContainer = styled.button<{
   $styleOptions: IbuttonStyleProps;
@@ -35,7 +35,7 @@ const ButtonContainer = styled.button<{
   }
 `;
 
-const Button = ({
+export const Button = ({
   children,
   size,
   fill,
@@ -54,5 +54,3 @@ const Button = ({
     </>
   );
 };
-
-export default Button;

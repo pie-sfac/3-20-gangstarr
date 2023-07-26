@@ -1,4 +1,4 @@
-import { font } from '.';
+import { font } from '../../styles';
 
 export const typography = {
   headline: {
