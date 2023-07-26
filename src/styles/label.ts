@@ -40,7 +40,7 @@ export const labelStyles = {
       background: color.fillPrimary50,
     },
     gray: {
-      background: color.background,
+      background: color.backgound,
     },
     green: {
       background: color.green,
