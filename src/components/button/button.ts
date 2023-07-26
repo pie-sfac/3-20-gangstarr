@@ -1,4 +1,4 @@
-import { font, color } from '.';
+import { font, color } from '../../styles';
 
 export const buttonStyles = {
   full: {

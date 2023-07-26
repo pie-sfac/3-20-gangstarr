@@ -1,5 +1,5 @@
-import { color } from '.';
-import { font } from '.';
+import { color } from '../../styles';
+import { font } from '../../styles';
 
 export const labelStyles = {
   small: {

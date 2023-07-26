@@ -1,14 +1,14 @@
 import { keyframes, styled } from 'styled-components';
-import { color } from '../styles';
-import { Icon } from './icon';
+import { color } from '../../styles';
+import { Icon } from '../icon';
 import { useEffect, useReducer } from 'react';
-import { Body4, Title6 } from './Typography';
-import { IDialogButtonProps, IDialogProps } from '../types/dialogTypes';
-import useOutsideClick from '../hooks/useOutsideClick';
-import Button from './Button';
-import useDialogDispatch from '../hooks/useDialogDispatch';
-import { DialogContext, DialogReducer } from '../context/dialogContext';
-import { onCloseModal } from '../util/dialogUtils';
+import { Body4, Title6 } from '../typography';
+import { IDialogButtonProps, IDialogProps } from '../../types/dialogTypes';
+import useOutsideClick from '../../hooks/useOutsideClick';
+import { Button } from '../button';
+import useDialogDispatch from '../../hooks/useDialogDispatch';
+import { DialogContext, DialogReducer } from '../../context/dialogContext';
+import { onCloseModal } from '../../util/dialogUtils';
 
 const fadeIn = keyframes`
   0% {
