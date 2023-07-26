@@ -19,6 +19,7 @@ export const color = {
   gray200: '#E7E7E7',
   gray100: '#F4F4F4',
   gray50: '#FBFBFB',
+  green: '#E6F9EA',
   basicBlack: '#141212',
   basicWhite: '#FFFFFF',
   systemError: '#DF291D',
