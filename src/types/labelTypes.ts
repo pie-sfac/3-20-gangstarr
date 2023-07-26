@@ -9,17 +9,10 @@ export interface IlabelProps extends React.HTMLAttributes<HTMLDivElement> {
 export interface IlabelStyleProps {
   width: string;
   height: string;
-  padding: string;
   borderRadius: string;
   background: string;
   color: string;
   fontSize: string;
-  fontFamily: string;
   fontWeight: number;
   lineHeight: string;
-  display: string;
-  justifyContent: string;
-  alignItems: string;
-  boxSizing: string;
-  gap: string;
 }
