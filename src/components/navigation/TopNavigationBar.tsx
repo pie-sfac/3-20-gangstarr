@@ -1,11 +1,11 @@
 import { styled } from 'styled-components';
-import { Icon, Graphic } from './icon';
+import { Icon, Graphic } from '../icon';
 import {
   ITopNavigationBarProps,
   ITabStylesProps,
-} from '../types/TopNavigationBarTypes';
+} from '../../types/TopNavigationBarTypes';
 import { useState } from 'react';
-import { color } from '../styles';
+import { color } from '../../styles';
 
 const TopNavigationBar = ({
   tapMenuLists,

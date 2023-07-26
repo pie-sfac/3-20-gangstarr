@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
-import { IlabelProps, IlabelStyleProps } from '../types/labelTypes';
-import { getStyleOptions } from '../util/labelUtils';
+import { IlabelProps, IlabelStyleProps } from '../../types/labelTypes';
+import { getLabelStyleOptions } from '../../util';
 
 const LabelContainer = styled.div<{
   $styleOptions: IlabelStyleProps;
@@ -30,7 +30,7 @@ const Label = ({
   return (
     <>
       <LabelContainer
-        $styleOptions={getStyleOptions(size, background, color, font)}
+        $styleOptions={getLabelStyleOptions(size, background, color, font)}
         {...props}>
         {children}
       </LabelContainer>

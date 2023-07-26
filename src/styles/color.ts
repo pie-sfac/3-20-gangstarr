@@ -39,5 +39,5 @@ export const color = {
   fillGrayWhite: '#FFFFFF',
   fillPrimary100: '#BFD1FF',
   fillPrimary50: '#EBF1FF',
-  backgound: '#F4F4F4',
+  background: '#F4F4F4',
 };

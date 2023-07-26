@@ -22,7 +22,7 @@ export const labelStyles = {
       background: color.fillPrimary50,
     },
     gray: {
-      background: color.backgound,
+      background: color.background,
     },
     green: {
       background: color.green,

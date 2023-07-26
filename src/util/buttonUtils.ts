@@ -1,7 +1,7 @@
-import { buttonStyles } from '../styles';
+import { buttonStyles } from '../components/button/button';
 import { IbuttonProps, IbuttonStyleProps } from '../types/buttonTypes';
 
-export const getStyleOptions = (
+export const getButtonStyleOptions = (
   size: IbuttonProps['size'] = 'large',
   fill: IbuttonProps['fill'] = 'contained',
   mode: IbuttonProps['mode'] = 'normal',
