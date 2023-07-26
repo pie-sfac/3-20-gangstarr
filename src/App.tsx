@@ -18,7 +18,6 @@ const ButtonContainer = styled.div`
   gap: 30px;
   padding: 50px;
 `;
-
 function App() {
   const [isHide, setIsHide] = useState(false);
 
