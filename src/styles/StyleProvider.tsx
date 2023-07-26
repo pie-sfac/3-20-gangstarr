@@ -7,7 +7,7 @@ const PoinTStyleProvider = ({
   children,
   theme,
 }: {
-  children: JSX.Element | JSX.Element[] | string;
+  children?: JSX.Element | JSX.Element[] | string;
   theme?: { [key: string]: string };
 }) => {
   return (
