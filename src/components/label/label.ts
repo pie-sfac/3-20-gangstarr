@@ -2,20 +2,15 @@ import { color } from '../../styles';
 import { font } from '../../styles';
 
 export const labelStyles = {
-  small: {
-    width: '54px',
+  rectangle: {
     height: '21px',
     borderRadius: '4px',
+    fontSize: font.fontSize.fontSize10,
   },
-  medium: {
-    width: '62px',
-    height: '21px',
-    borderRadius: '4px',
-  },
-  large: {
-    width: '64px',
+  round: {
     height: '23px',
     borderRadius: '100px',
+    fontSize: font.fontSize.fontSize12,
   },
   background: {
     blue: {
@@ -44,15 +39,5 @@ export const labelStyles = {
     green: {
       color: color.systemPositive,
     },
-  },
-  caption1: {
-    fontSize: font.fontSize.fontSize12,
-    fontWeight: font.fontWeight.fontWeightRegular,
-    lineHeight: font.lineHeight.lineHeight128,
-  },
-  caption2: {
-    fontSize: font.fontSize.fontSize10,
-    fontWeight: font.fontWeight.fontWeightRegular,
-    lineHeight: font.lineHeight.lineHeight128,
   },
 };
