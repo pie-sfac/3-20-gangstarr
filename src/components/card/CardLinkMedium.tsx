@@ -47,6 +47,7 @@ const CardLinkMediumText = styled(Body4)`
 const CardLinkMedium = ({
   imageUrl = defaultImage,
   isDelete,
+  text = '텍스트를 입력해주세요.',
   ...props
 }: CardLinkMediumProps): JSX.Element => {
   return (
@@ -57,9 +58,7 @@ const CardLinkMedium = ({
         </CardLinkMediumCancel>
       )}
       <CardLinkMediumImage src={imageUrl}></CardLinkMediumImage>
-      <CardLinkMediumText>
-        허리 디스크 질환이 의심될때허리 디스크 질환이 의심될때..
-      </CardLinkMediumText>
+      <CardLinkMediumText>{text}</CardLinkMediumText>
     </CardLinkMediumContainer>
   );
 };
