@@ -5,8 +5,6 @@ export interface CardLinkMediumProps extends HTMLAttributes<HTMLDivElement> {
   isDelete?: boolean;
 }
 
-export interface CardLinkMediumCancelProps extends CardLinkMediumProps {}
-
 export interface CardTextStyleProps {
   $isName?: boolean;
   $minWidth: string;

@@ -4,10 +4,8 @@ import defaultImage from '../../assets/defaultMediumImage.png';
 import { color } from '../../styles';
 import { Body4 } from '../typography';
 import { Icon } from '../icon';
-import {
-  CardLinkMediumCancelProps,
-  CardLinkMediumProps,
-} from '../../types/cardTypes';
+import { CardLinkMediumProps } from '../../types/cardTypes';
+import { HTMLAttributes } from 'react';
 
 const CardLinkMediumContainer = styled(CardBase)`
   width: 244px;
@@ -19,7 +17,7 @@ const CardLinkMediumContainer = styled(CardBase)`
   position: relative;
 `;
 
-const CardLinkMediumCancel = styled.button<CardLinkMediumCancelProps>`
+const CardLinkMediumCancel = styled.button<HTMLAttributes<HTMLDivElement>>`
   position: absolute;
   top: -12px;
   right: -12px;
