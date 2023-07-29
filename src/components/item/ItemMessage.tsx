@@ -61,8 +61,6 @@ export const ItemMessage = ({
   date = '2023 - 00 - 00',
 }: {
   fill?: IitemProps['fill'];
-  name?: IitemTemplateProps['name'];
-  phone?: IitemTemplateProps['phone'];
   memo?: IitemTemplateProps['memo'];
   date?: IitemTemplateProps['date'];
 }): JSX.Element => {
