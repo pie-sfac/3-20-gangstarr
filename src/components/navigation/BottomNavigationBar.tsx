@@ -2,8 +2,8 @@ import { styled } from 'styled-components';
 import { color } from '../../styles';
 import { Icon } from '../icon';
 import { Caption2 } from '../typography';
-import { IbottomNavigationBarProps } from '../../types/bottomNavigationBarTypes';
 import { getPath } from '../../util';
+import { IbottomNavigationBarProps } from '../../types/bottomNavigationBarTypes';
 
 const BottomNavigationBar = ({
   tabNameLists,
