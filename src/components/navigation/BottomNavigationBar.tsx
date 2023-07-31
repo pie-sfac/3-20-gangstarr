@@ -3,12 +3,7 @@ import { color } from '../../styles';
 import { Icon } from '../icon';
 import { Caption2 } from '../typography';
 import { IBottomNavigationBarProps } from '../../types/BottomNavigationBarTypes';
-
-const getPath = () => {
-  const { pathname } = new URL(window.location.href);
-
-  return pathname.slice(1);
-};
+import { getPath } from '../../util';
 
 const BottomNavigationBar = ({
   tabNameLists,
@@ -22,7 +17,7 @@ const BottomNavigationBar = ({
     <NavigationLayout>
       <IconContainer>
         <IconWrap onClick={onHomeClick}>
-          {getPath() === tabNameLists.home ? (
+          {getPath(tabNameLists.home) === tabNameLists.home ? (
             <Icon name={'onHome'} />
           ) : (
             <Icon name={'offHome'} />
@@ -30,7 +25,7 @@ const BottomNavigationBar = ({
           <Caption2>홈</Caption2>
         </IconWrap>
         <IconWrap onClick={onReserveClick}>
-          {getPath() === tabNameLists.reserve ? (
+          {getPath(tabNameLists.reserve) === tabNameLists.reserve ? (
             <Icon name={'onReserve'} />
           ) : (
             <Icon name={'offReserve'} />
@@ -38,7 +33,7 @@ const BottomNavigationBar = ({
           <Caption2>일정관리</Caption2>
         </IconWrap>
         <IconWrap onClick={onPartiendClick}>
-          {getPath() === tabNameLists.partiend ? (
+          {getPath(tabNameLists.partiend) === tabNameLists.partiend ? (
             <Icon name={'onPatiend'} />
           ) : (
             <Icon name={'offPatiend'} />
@@ -46,7 +41,7 @@ const BottomNavigationBar = ({
           <Caption2>회원관리</Caption2>
         </IconWrap>
         <IconWrap onClick={onCenterClick}>
-          {getPath() === tabNameLists.center ? (
+          {getPath(tabNameLists.center) === tabNameLists.center ? (
             <Icon name={'onCenter'} />
           ) : (
             <Icon name={'offCenter'} />
@@ -54,7 +49,7 @@ const BottomNavigationBar = ({
           <Caption2>센터관리</Caption2>
         </IconWrap>
         <IconWrap onClick={onMypageClick}>
-          {getPath() === tabNameLists.mypage ? (
+          {getPath(tabNameLists.mypage) === tabNameLists.mypage ? (
             <Icon name={'onMypage'} />
           ) : (
             <Icon name={'offMypage'} />
@@ -73,7 +68,6 @@ const NavigationLayout = styled.div`
   width: 1024px;
   height: 47px;
   background: ${color.basicWhite};
-
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -88,9 +82,7 @@ const IconContainer = styled.div`
 
 const IconWrap = styled.div`
   height: 100%;
-
   width: 56px;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
