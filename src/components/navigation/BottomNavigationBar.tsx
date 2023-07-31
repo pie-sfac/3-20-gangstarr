@@ -75,8 +75,6 @@ const NavigationLayout = styled.div`
   background: ${color.basicWhite};
 
   display: inline-flex;
-  position: relative;
-  top: 50vh;
   justify-content: center;
   align-items: center;
 `;
