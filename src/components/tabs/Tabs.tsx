@@ -1,10 +1,6 @@
 import { styled } from 'styled-components';
 import { color, font } from '../../styles';
-import { useState } from 'react';
-
-interface ITabsProps {
-  tabLists: { name: string; callback?: () => void }[];
-}
+import { ITabsProps } from '../../types/tabsTypes';
 
 const TabsContainer = styled.div`
   display: flex;
@@ -32,23 +28,16 @@ const TabItem = styled.div<{ $isSelected?: boolean }>`
   `}
 `;
 
-const Tabs = ({ tabLists }: ITabsProps): JSX.Element => {
-  const [isSelected, setIsSelected] = useState<number>(0);
-
-  const onClickTab = (target: number): void => {
-    setIsSelected(target);
-  };
-
+const Tabs = ({ tabLists, currentTab }: ITabsProps): JSX.Element => {
   return (
     <TabsContainer>
       {tabLists?.slice(0, 10).map((item, index) => (
         <TabItem
           onClick={() => {
-            onClickTab(index);
-            if (item.callback) item.callback();
+            item.callback();
           }}
           key={index}
-          $isSelected={index === isSelected}>
+          $isSelected={currentTab === item.path}>
           {item.name}
         </TabItem>
       ))}
