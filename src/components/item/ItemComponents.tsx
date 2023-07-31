@@ -46,6 +46,14 @@ export const Item = {
     width: 100%;
   `,
 
+  ItemMessageText: styled.div`
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  `,
+
   ItemLabelArea: styled.div`
     display: flex;
     width: 81px;
@@ -56,6 +64,11 @@ export const Item = {
 
   ItemLabel: styled.div``,
 
+  ItemIcons: styled.div`
+    display: flex;
+    gap: 7px;
+  `,
+
   ItemContents: styled.div`
     display: flex;
     justify-content: space-between;
@@ -63,6 +76,14 @@ export const Item = {
   `,
 
   ItemRecordContents: styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 32px;
+  `,
+
+  ItemMessageContents: styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;

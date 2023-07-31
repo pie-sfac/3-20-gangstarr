@@ -36,9 +36,7 @@ export const ItemMember1 = ({
         </Item.ItemContent>
         <Item.ItemInfo>
           <Item.ItemLabelArea>
-            <Label background='gray' color='gray' size='small' font='caption1'>
-              {trainer}
-            </Label>
+            <Label>{trainer}</Label>
           </Item.ItemLabelArea>
           <Item.ItemDate>
             <Body4>{date}</Body4>

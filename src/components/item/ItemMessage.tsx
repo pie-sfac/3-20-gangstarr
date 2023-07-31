@@ -1,34 +1,8 @@
-import { styled } from 'styled-components';
 import { Icon } from '../icon';
 import { Body4 } from '../typography';
 import { IitemProps, IitemTemplateProps } from '../../types/itemTypes';
 import { getItemStyleOptions } from '../../util';
 import { Item } from '.';
-
-const ItemDate = styled.div`
-  min-width: 85px;
-`;
-
-const ItemText = styled.div`
-  display: block;
-  width: 100%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-`;
-
-const ItemIcons = styled.div`
-  display: flex;
-  gap: 7px;
-`;
-
-const ItemContents = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  gap: 32px;
-`;
 
 export const ItemMessage = ({
   fill,
@@ -43,21 +17,21 @@ export const ItemMessage = ({
     <Item.ItemContainer
       $styleOptions={getItemStyleOptions(fill)}
       $isOutline={fill === 'contained'}>
-      <ItemContents>
-        <ItemDate>
+      <Item.ItemMessageContents>
+        <Item.ItemDate>
           <Body4>{date}</Body4>
-        </ItemDate>
-        <ItemText>
+        </Item.ItemDate>
+        <Item.ItemMessageText>
           <Body4>{memo}</Body4>
-        </ItemText>
-        <ItemIcons>
+        </Item.ItemMessageText>
+        <Item.ItemIcons>
           <Icon name='onStar'></Icon>
           <Icon name='onStar'></Icon>
           <Icon name='onStar'></Icon>
           <Icon name='onStar'></Icon>
           <Icon name='offStar'></Icon>
-        </ItemIcons>
-      </ItemContents>
+        </Item.ItemIcons>
+      </Item.ItemMessageContents>
     </Item.ItemContainer>
   );
 };

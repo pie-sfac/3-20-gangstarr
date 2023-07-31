@@ -1,8 +1,8 @@
 import { Body4 } from '../typography';
-import { Label } from '../label';
 import { IitemProps, IitemTemplateProps } from '../../types/itemTypes';
 import { getItemStyleOptions } from '../../util';
 import { Item } from '.';
+import { Label } from '../label';
 
 export const ItemRecord = ({
   fill,
