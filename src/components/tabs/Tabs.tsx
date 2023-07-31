@@ -7,7 +7,7 @@ const TabsContainer = styled.div`
   width: 100%;
 `;
 
-const TabItem = styled.div<{ $isSelected?: boolean }>`
+const TabItem = styled.div<{ $isSelected: boolean }>`
   position: relative;
   width: 100%;
   display: flex;
@@ -33,9 +33,7 @@ const Tabs = ({ tabLists, currentTab }: ITabsProps): JSX.Element => {
     <TabsContainer>
       {tabLists?.slice(0, 10).map((item, index) => (
         <TabItem
-          onClick={() => {
-            item.callback();
-          }}
+          onClick={() => item.callback()}
           key={index}
           $isSelected={currentTab === item.path}>
           {item.name}
