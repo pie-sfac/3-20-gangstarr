@@ -19,7 +19,7 @@ const LabelContainer = styled.div<{
   padding: 4px 8px;
 `;
 
-export const Label = ({
+const Label = ({
   children,
   shape,
   background,
@@ -36,3 +36,5 @@ export const Label = ({
     </>
   );
 };
+
+export default Label;
