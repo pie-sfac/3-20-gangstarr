@@ -7,49 +7,49 @@ import { getPath } from '../../util';
 
 const BottomNavigationBar = ({
   tabNameLists,
-  onHomeClick,
-  onReserveClick,
-  onPartiendClick,
-  onCenterClick,
-  onMypageClick,
+  onClickHome,
+  onClickReserve,
+  onClickPartiend,
+  onClickCenter,
+  onClickMypage,
 }: IBottomNavigationBarProps) => {
   return (
     <NavigationLayout>
       <IconContainer>
-        <IconWrap onClick={onHomeClick}>
-          {getPath(tabNameLists.home) === tabNameLists.home ? (
+        <IconWrap onClick={onClickHome}>
+          {getPath() === tabNameLists.home ? (
             <Icon name={'onHome'} />
           ) : (
             <Icon name={'offHome'} />
           )}
           <Caption2>홈</Caption2>
         </IconWrap>
-        <IconWrap onClick={onReserveClick}>
-          {getPath(tabNameLists.reserve) === tabNameLists.reserve ? (
+        <IconWrap onClick={onClickReserve}>
+          {getPath() === tabNameLists.reserve ? (
             <Icon name={'onReserve'} />
           ) : (
             <Icon name={'offReserve'} />
           )}
           <Caption2>일정관리</Caption2>
         </IconWrap>
-        <IconWrap onClick={onPartiendClick}>
-          {getPath(tabNameLists.partiend) === tabNameLists.partiend ? (
+        <IconWrap onClick={onClickPartiend}>
+          {getPath() === tabNameLists.partiend ? (
             <Icon name={'onPatiend'} />
           ) : (
             <Icon name={'offPatiend'} />
           )}
           <Caption2>회원관리</Caption2>
         </IconWrap>
-        <IconWrap onClick={onCenterClick}>
-          {getPath(tabNameLists.center) === tabNameLists.center ? (
+        <IconWrap onClick={onClickCenter}>
+          {getPath() === tabNameLists.center ? (
             <Icon name={'onCenter'} />
           ) : (
             <Icon name={'offCenter'} />
           )}
           <Caption2>센터관리</Caption2>
         </IconWrap>
-        <IconWrap onClick={onMypageClick}>
-          {getPath(tabNameLists.mypage) === tabNameLists.mypage ? (
+        <IconWrap onClick={onClickMypage}>
+          {getPath() === tabNameLists.mypage ? (
             <Icon name={'onMypage'} />
           ) : (
             <Icon name={'offMypage'} />

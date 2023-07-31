@@ -6,9 +6,9 @@ export interface IBottomNavigationBarProps {
     center: string;
     mypage: string;
   };
-  onHomeClick: () => void;
-  onReserveClick: () => void;
-  onPartiendClick: () => void;
-  onCenterClick: () => void;
-  onMypageClick: () => void;
+  onClickHome: () => void;
+  onClickReserve: () => void;
+  onClickPartiend: () => void;
+  onClickCenter: () => void;
+  onClickMypage: () => void;
 }
