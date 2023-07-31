@@ -4,3 +4,4 @@ export { ItemStaff1 } from './ItemStaff1';
 export { ItemRecord } from './ItemRecord';
 export { ItemTherapyCenter } from './ItemTherapyCenter';
 export { ItemMessage } from './ItemMessage';
+export { Item } from './ItemComponents';

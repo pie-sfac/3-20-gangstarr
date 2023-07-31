@@ -1,13 +1,9 @@
 import { styled } from 'styled-components';
 import { Icon } from '../icon';
 import { Body4 } from '../typography';
-import {
-  IitemProps,
-  IitemStyleProps,
-  IitemTemplateProps,
-} from '../../types/itemTypes';
-import { color, font } from '../../styles';
+import { IitemProps, IitemTemplateProps } from '../../types/itemTypes';
 import { getItemStyleOptions } from '../../util';
+import { Item } from '.';
 
 const ItemDate = styled.div`
   min-width: 85px;
@@ -34,27 +30,6 @@ const ItemContents = styled.div`
   gap: 32px;
 `;
 
-const ItemContainer = styled.div<{
-  $styleOptions: IitemStyleProps;
-  $isOutline: boolean;
-}>`
-  display: flex;
-  max-width: 1024px;
-  width: 100%;
-  height: 48px;
-  padding: 10px 24px;
-  justify-content: space-between;
-  align-items: center;
-  flex-shrink: 0;
-  border-radius: 4px;
-  border: ${({ $styleOptions }) => $styleOptions.border};
-  background: #fff;
-  color: ${color.textGray900};
-  font-size: ${font.fontSize.fontSize14};
-  font-weight: ${font.fontWeight.fontWeightRegular};
-  box-sizing: border-box;
-`;
-
 export const ItemMessage = ({
   fill,
   memo = '메모가 없습니다.',
@@ -65,7 +40,7 @@ export const ItemMessage = ({
   date?: IitemTemplateProps['date'];
 }): JSX.Element => {
   return (
-    <ItemContainer
+    <Item.ItemContainer
       $styleOptions={getItemStyleOptions(fill)}
       $isOutline={fill === 'contained'}>
       <ItemContents>
@@ -83,6 +58,6 @@ export const ItemMessage = ({
           <Icon name='offStar'></Icon>
         </ItemIcons>
       </ItemContents>
-    </ItemContainer>
+    </Item.ItemContainer>
   );
 };

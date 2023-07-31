@@ -1,54 +1,7 @@
-import { styled } from 'styled-components';
 import { Body4 } from '../typography';
-import { color, font } from '../../styles';
-import {
-  IitemProps,
-  IitemStyleProps,
-  IitemTemplateProps,
-} from '../../types/itemTypes';
+import { IitemProps, IitemTemplateProps } from '../../types/itemTypes';
 import { getItemStyleOptions } from '../../util';
-
-const ItemDate = styled.div`
-  min-width: 71px;
-`;
-
-const ItemDescription = styled.div``;
-
-const ItemCount = styled.div`
-  color: ${color.primary500};
-`;
-
-const ItemText = styled.div`
-  display: flex;
-  gap: 16px;
-`;
-
-const ItemContents = styled.div`
-  display: flex;
-  width: 100%;
-  gap: 32px;
-`;
-
-const ItemContainer = styled.div<{
-  $styleOptions: IitemStyleProps;
-  $isOutline: boolean;
-}>`
-  display: flex;
-  max-width: 1024px;
-  width: 100%;
-  height: 48px;
-  padding: 10px 24px;
-  justify-content: space-between;
-  align-items: center;
-  flex-shrink: 0;
-  border-radius: 4px;
-  border: ${({ $styleOptions }) => $styleOptions.border};
-  background: #fff;
-  color: ${color.textGray900};
-  font-size: ${font.fontSize.fontSize14};
-  font-weight: ${font.fontWeight.fontWeightRegular};
-  box-sizing: border-box;
-`;
+import { Item } from '.';
 
 export const ItemTherapyCenter = ({
   fill,
@@ -60,22 +13,22 @@ export const ItemTherapyCenter = ({
   description?: IitemTemplateProps['description'];
 }): JSX.Element => {
   return (
-    <ItemContainer
+    <Item.ItemContainer
       $styleOptions={getItemStyleOptions(fill)}
       $isOutline={fill === 'contained'}>
-      <ItemContents>
-        <ItemDate>
+      <Item.ItemTherapyCenterContents>
+        <Item.ItemDate>
           <Body4>{date}</Body4>
-        </ItemDate>
-        <ItemText>
-          <ItemDescription>
+        </Item.ItemDate>
+        <Item.ItemTherapyCenterText>
+          <Item.ItemDescription>
             <Body4>{description}</Body4>
-          </ItemDescription>
-          <ItemCount>
+          </Item.ItemDescription>
+          <Item.ItemCount>
             <Body4>+0</Body4>
-          </ItemCount>
-        </ItemText>
-      </ItemContents>
-    </ItemContainer>
+          </Item.ItemCount>
+        </Item.ItemTherapyCenterText>
+      </Item.ItemTherapyCenterContents>
+    </Item.ItemContainer>
   );
 };
