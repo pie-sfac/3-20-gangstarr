@@ -2,17 +2,17 @@ import { styled } from 'styled-components';
 import { color } from '../../styles';
 import { Icon } from '../icon';
 import { Caption2 } from '../typography';
-import { IBottomNavigationBarProps } from '../../types/BottomNavigationBarTypes';
+import { IbottomNavigationBarProps } from '../../types/bottomNavigationBarTypes';
 import { getPath } from '../../util';
 
 const BottomNavigationBar = ({
   tabNameLists,
   onClickHome,
-  onClickReserve,
-  onClickPartiend,
+  onClickReservation,
+  onClickPatient,
   onClickCenter,
   onClickMypage,
-}: IBottomNavigationBarProps) => {
+}: IbottomNavigationBarProps) => {
   return (
     <NavigationLayout>
       <IconContainer>
@@ -24,19 +24,19 @@ const BottomNavigationBar = ({
           )}
           <Caption2>홈</Caption2>
         </IconWrap>
-        <IconWrap onClick={onClickReserve}>
-          {getPath() === tabNameLists.reserve ? (
+        <IconWrap onClick={onClickReservation}>
+          {getPath() === tabNameLists.reservation ? (
             <Icon name={'onReserve'} />
           ) : (
             <Icon name={'offReserve'} />
           )}
           <Caption2>일정관리</Caption2>
         </IconWrap>
-        <IconWrap onClick={onClickPartiend}>
-          {getPath() === tabNameLists.partiend ? (
-            <Icon name={'onPatiend'} />
+        <IconWrap onClick={onClickPatient}>
+          {getPath() === tabNameLists.patient ? (
+            <Icon name={'onPatient'} />
           ) : (
-            <Icon name={'offPatiend'} />
+            <Icon name={'offPatient'} />
           )}
           <Caption2>회원관리</Caption2>
         </IconWrap>

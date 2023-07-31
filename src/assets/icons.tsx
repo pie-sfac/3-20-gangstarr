@@ -27,7 +27,7 @@ export const icons = {
     </svg>
   ),
 
-  offPatiend: () => (
+  offPatient: () => (
     <svg
       xmlns='http://www.w3.org/2000/svg'
       width='24'
@@ -123,7 +123,7 @@ export const icons = {
       />
     </svg>
   ),
-  onPatiend: () => (
+  onPatient: () => (
     <svg
       xmlns='http://www.w3.org/2000/svg'
       width='24'
