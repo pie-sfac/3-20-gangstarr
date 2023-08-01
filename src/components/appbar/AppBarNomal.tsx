@@ -4,24 +4,6 @@ import { Body1 } from '../typography';
 import { IappBarProps } from '../../types/appBarTypes';
 import { color } from '../../styles';
 
-const AppBarNomal = ({ title }: IappBarProps): JSX.Element => {
-  return (
-    <AppBarContainer>
-      <GobackButton
-        onClick={() => {
-          history.go(-1);
-        }}>
-        <Icon name={'back'} />
-      </GobackButton>
-      <PageNameWarp>
-        <Body1>{title}</Body1>
-      </PageNameWarp>
-    </AppBarContainer>
-  );
-};
-
-export default AppBarNomal;
-
 const AppBarContainer = styled.div`
   border-bottom: 1px solid ${color.gray200};
   width: 1024px;
@@ -33,7 +15,7 @@ const AppBarContainer = styled.div`
   gap: 10px;
 `;
 
-const GobackButton = styled.button`
+const GoBackButton = styled.button`
   appearance: none;
   border: none;
   background: none;
@@ -45,3 +27,21 @@ const GobackButton = styled.button`
 const PageNameWarp = styled.div`
   flex: 1;
 `;
+
+const AppBarNomal = ({ title }: IappBarProps): JSX.Element => {
+  return (
+    <AppBarContainer>
+      <GoBackButton
+        onClick={() => {
+          history.go(-1);
+        }}>
+        <Icon name={'back'} />
+      </GoBackButton>
+      <PageNameWarp>
+        <Body1>{title}</Body1>
+      </PageNameWarp>
+    </AppBarContainer>
+  );
+};
+
+export default AppBarNomal;

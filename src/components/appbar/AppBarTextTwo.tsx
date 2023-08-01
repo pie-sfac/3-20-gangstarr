@@ -4,38 +4,6 @@ import { Body1 } from '../typography';
 import { IappBarProps } from '../../types/appBarTypes';
 import { color } from '../../styles';
 
-const AppBarTextTwo = ({ title }: IappBarProps): JSX.Element => {
-  const onClickAction1 = () => {
-    null;
-  };
-  const onClickAction2 = () => {
-    null;
-  };
-  return (
-    <AppBarContainer>
-      <GobackButton
-        onClick={() => {
-          history.go(-1);
-        }}>
-        <Icon name={'back'} />
-      </GobackButton>
-      <PageNameWarp>
-        <Body1>{title}</Body1>
-      </PageNameWarp>
-      <IconWarp>
-        <ActionBtn1 onClick={onClickAction1}>
-          <Body1>버튼</Body1>
-        </ActionBtn1>
-        <ActionBtn2 onClick={onClickAction2}>
-          <Body1>버튼</Body1>
-        </ActionBtn2>
-      </IconWarp>
-    </AppBarContainer>
-  );
-};
-
-export default AppBarTextTwo;
-
 const AppBarContainer = styled.div`
   border-bottom: 1px solid ${color.gray200};
   width: 1024px;
@@ -47,7 +15,7 @@ const AppBarContainer = styled.div`
   gap: 10px;
 `;
 
-const GobackButton = styled.button`
+const GoBackButton = styled.button`
   appearance: none;
   border: none;
   background: none;
@@ -88,3 +56,35 @@ const ActionBtn2 = styled.button`
   padding: 0;
   cursor: pointer;
 `;
+
+const AppBarTextTwo = ({ title }: IappBarProps): JSX.Element => {
+  const onClickAction1 = () => {
+    null;
+  };
+  const onClickAction2 = () => {
+    null;
+  };
+  return (
+    <AppBarContainer>
+      <GoBackButton
+        onClick={() => {
+          history.go(-1);
+        }}>
+        <Icon name={'back'} />
+      </GoBackButton>
+      <PageNameWarp>
+        <Body1>{title}</Body1>
+      </PageNameWarp>
+      <IconWarp>
+        <ActionBtn1 onClick={onClickAction1}>
+          <Body1>버튼</Body1>
+        </ActionBtn1>
+        <ActionBtn2 onClick={onClickAction2}>
+          <Body1>버튼</Body1>
+        </ActionBtn2>
+      </IconWarp>
+    </AppBarContainer>
+  );
+};
+
+export default AppBarTextTwo;

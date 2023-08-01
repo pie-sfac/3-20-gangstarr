@@ -5,34 +5,6 @@ import { IappBarProps } from '../../types/appBarTypes';
 import { color } from '../../styles';
 import { useState } from 'react';
 
-const AppBarCount = ({ title }: IappBarProps): JSX.Element => {
-  const [count, setCount] = useState(0);
-  const onClickCount = () => {
-    setCount(() => count + 0);
-  };
-
-  return (
-    <AppBarContainer>
-      <GobackButton
-        onClick={() => {
-          history.go(-1);
-        }}>
-        <Icon name={'back'} />
-      </GobackButton>
-      <PageNameWarp>
-        <Body1>{title}</Body1>
-      </PageNameWarp>
-      <IconWarp>
-        <ActionBtn1 onClick={onClickCount}>
-          <Body1>버튼({count})</Body1>
-        </ActionBtn1>
-      </IconWarp>
-    </AppBarContainer>
-  );
-};
-
-export default AppBarCount;
-
 const AppBarContainer = styled.div`
   border-bottom: 1px solid ${color.gray200};
   width: 1024px;
@@ -44,7 +16,7 @@ const AppBarContainer = styled.div`
   gap: 10px;
 `;
 
-const GobackButton = styled.button`
+const GoBackButton = styled.button`
   appearance: none;
   border: none;
   background: none;
@@ -73,3 +45,31 @@ const ActionBtn1 = styled.button`
   padding: 0;
   cursor: pointer;
 `;
+
+const AppBarCount = ({ title }: IappBarProps): JSX.Element => {
+  const [count, setCount] = useState(0);
+  const onClickCount = () => {
+    setCount(() => count + 1);
+  };
+
+  return (
+    <AppBarContainer>
+      <GoBackButton
+        onClick={() => {
+          history.go(-1);
+        }}>
+        <Icon name={'back'} />
+      </GoBackButton>
+      <PageNameWarp>
+        <Body1>{title}</Body1>
+      </PageNameWarp>
+      <IconWarp>
+        <ActionBtn1 onClick={onClickCount}>
+          <Body1>버튼({count})</Body1>
+        </ActionBtn1>
+      </IconWarp>
+    </AppBarContainer>
+  );
+};
+
+export default AppBarCount;

@@ -4,33 +4,6 @@ import { Body1 } from '../typography';
 import { IappBarProps } from '../../types/appBarTypes';
 import { color } from '../../styles';
 
-const AppBarIconOne = ({ title }: IappBarProps): JSX.Element => {
-  const onClickAction1 = () => {
-    null;
-  };
-
-  return (
-    <AppBarContainer>
-      <GobackButton
-        onClick={() => {
-          history.go(-1);
-        }}>
-        <Icon name={'back'} />
-      </GobackButton>
-      <PageNameWarp>
-        <Body1>{title}</Body1>
-      </PageNameWarp>
-      <IconWarp>
-        <ActionBtn1 onClick={onClickAction1}>
-          <Graphic name={'profile24px'} />
-        </ActionBtn1>
-      </IconWarp>
-    </AppBarContainer>
-  );
-};
-
-export default AppBarIconOne;
-
 const AppBarContainer = styled.div`
   border-bottom: 1px solid ${color.gray200};
   width: 1024px;
@@ -42,7 +15,7 @@ const AppBarContainer = styled.div`
   gap: 10px;
 `;
 
-const GobackButton = styled.button`
+const GoBackButton = styled.button`
   appearance: none;
   border: none;
   background: none;
@@ -72,3 +45,30 @@ const ActionBtn1 = styled.button`
   padding: 0;
   cursor: pointer;
 `;
+
+const AppBarIconOne = ({ title }: IappBarProps): JSX.Element => {
+  const onClickAction1 = () => {
+    null;
+  };
+
+  return (
+    <AppBarContainer>
+      <GoBackButton
+        onClick={() => {
+          history.go(-1);
+        }}>
+        <Icon name={'back'} />
+      </GoBackButton>
+      <PageNameWarp>
+        <Body1>{title}</Body1>
+      </PageNameWarp>
+      <IconWarp>
+        <ActionBtn1 onClick={onClickAction1}>
+          <Graphic name={'profile24px'} />
+        </ActionBtn1>
+      </IconWarp>
+    </AppBarContainer>
+  );
+};
+
+export default AppBarIconOne;
