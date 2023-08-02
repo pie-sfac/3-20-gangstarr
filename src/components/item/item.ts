@@ -1,4 +1,4 @@
-import { color } from '.';
+import { color } from '../../styles';
 
 export const itemStyles = {
   contained: {
