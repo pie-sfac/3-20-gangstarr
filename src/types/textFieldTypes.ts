@@ -10,8 +10,10 @@ export interface ItextFieldProps
   id: string;
   title: string;
   validate: boolean;
-  showMessage: boolean;
-  customMessage?: string;
+  isError?: boolean;
+  customErrorMessage?: string;
+  customSuccessMessage?: string;
+  customInactiveMessage?: string;
 }
 
 export interface ItextFieldStyleProps {

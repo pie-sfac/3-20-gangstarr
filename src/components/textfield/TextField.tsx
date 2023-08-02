@@ -24,6 +24,7 @@ const TextFieldContainer = styled.input<{
   display: flex;
   justify-content: center;
   align-items: center;
+  align-self: stretch;
   padding: 8px 16px;
   &:focus {
     border: ${textFieldStyles['focused'].border};
@@ -53,68 +54,56 @@ const TextField = ({
   state,
   id,
   title,
-  validate,
-  customMessage,
-  showMessage = false,
+  isError,
+  customErrorMessage,
+  customSuccessMessage,
+  customInactiveMessage,
   placeholder,
+  validate,
   ...props
 }: ItextFieldProps): JSX.Element => {
-  const [isInput, setIsInput] = useState(getTextFieldStyleOptions(state));
-  const [inputValue, setInputValue] = useState('');
-  const [hasError, setHasError] = useState(false);
-  const [messageColor, setMessageColor] = useState(color.textGray400);
-
-  const onBlur = () => {
-    if (!validate) {
-      setIsInput(getTextFieldStyleOptions('activated'));
-    }
-  };
-
-  const onChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(e.target.value);
-    if (validate) {
-      if (e.target.value.length < 7) {
-        setHasError(true);
-        setIsInput(getTextFieldStyleOptions('error'));
-        setMessageColor(color.systemError);
-      } else {
-        setHasError(false);
-        setIsInput(getTextFieldStyleOptions('positive'));
-        setMessageColor(color.systemPositive);
-      }
-    }
-  };
+  const [isEmpty, setIsEmpty] = useState(true);
   return (
     <>
       <TextFieldLabel htmlFor={id}>{title}</TextFieldLabel>
       <TextFieldContainer
         id={id}
         $state={state}
-        $styleOptions={hasError ? getTextFieldStyleOptions('error') : isInput}
-        onBlur={onBlur}
-        value={inputValue}
-        onChange={onChangeInput}
+        $styleOptions={
+          isEmpty
+            ? getTextFieldStyleOptions('inactive')
+            : !validate
+            ? getTextFieldStyleOptions('activated')
+            : isError
+            ? getTextFieldStyleOptions('error')
+            : getTextFieldStyleOptions('positive')
+        }
         placeholder={placeholder}
-        {...props}></TextFieldContainer>
-      {hasError && showMessage && (
-        <Message color={messageColor}>
-          {customMessage || '에러메시지를 입력해주세요.'}
-        </Message>
-      )}
-      {!hasError && inputValue.length >= 7 && validate && showMessage && (
-        <Message color={messageColor}>
-          {customMessage || '성공메시지를 입력해주세요.'}
-        </Message>
-      )}
-      {validate === false && showMessage && (
-        <Message color={messageColor}>
-          {customMessage || '인엑티브 메세지가 있다면 입력해주세요.'}
-        </Message>
-      )}
+        {...props}
+        value={props.value}
+        onChange={(e) => {
+          if (e.target.value !== '') setIsEmpty(false);
+          else setIsEmpty(true);
+          if (props.onChange) props.onChange(e);
+        }}></TextFieldContainer>
+
+      {validate ? (
+        isEmpty ? (
+          <Message color={color.textGray400}>
+            {customInactiveMessage || '인액티브메시지를 입력해주세요.'}
+          </Message>
+        ) : isError ? (
+          <Message color={color.systemError}>
+            {customErrorMessage || '에러메시지를 입력해주세요.'}
+          </Message>
+        ) : (
+          <Message color={color.systemPositive}>
+            {customSuccessMessage || '성공메시지를 입력해주세요.'}
+          </Message>
+        )
+      ) : null}
     </>
   );
 };
 
 export default TextField;
-
-// util/index.ts에 textfield 추가해도 됨?
