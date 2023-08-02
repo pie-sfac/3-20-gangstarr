@@ -1,1 +1,1 @@
-export * from './PopupMenuComponents';
+export * from './PopupMenu';
