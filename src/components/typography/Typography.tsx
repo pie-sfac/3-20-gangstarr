@@ -25,7 +25,7 @@ export const Title3 = styled.h3`
   line-height: ${typography.title3.lineHeight};
 `;
 
-export const Titl4 = styled.h4`
+export const Title4 = styled.h4`
   font-size: ${typography.title4.fontSize};
   font-weight: ${typography.title4.fontWeight};
   line-height: ${typography.title4.lineHeight};
