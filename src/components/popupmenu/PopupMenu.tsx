@@ -18,7 +18,10 @@ const PopupMenu = ({
   const [isVisible, setIsVisible] = useState(true);
 
   const onClickMenu = () => {
-    setIsVisible(!isVisible);
+    setIsVisible(false);
+    setTimeout(() => {
+      onClosePopup();
+    }, 300);
   };
 
   return (
@@ -28,8 +31,8 @@ const PopupMenu = ({
           <Popup.PopupMenus
             key={menuLists.id}
             onClick={() => {
-              history.pushState('', '', menuLists.link);
               onClickMenu();
+              history.pushState('', '', menuLists.link);
             }}>
             <Body2>{menuLists.menu}</Body2>
           </Popup.PopupMenus>
