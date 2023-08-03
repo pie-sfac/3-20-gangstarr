@@ -78,7 +78,10 @@ const CounterBtn = styled.button`
 const AppBar = ({ title, icon, text, counter }: IappBarProps): JSX.Element => {
   return (
     <AppBarContainer>
-      <GoBackButton>
+      <GoBackButton
+        onClick={() => {
+          history.go(-1);
+        }}>
         <Icon name={'back'} />
       </GoBackButton>
       <PageNameWarp>
@@ -86,30 +89,20 @@ const AppBar = ({ title, icon, text, counter }: IappBarProps): JSX.Element => {
       </PageNameWarp>
       {icon && (
         <IconWarp>
-          {icon.iconL && (
-            <IconBtn>
-              <Graphic name={`${icon.iconL}`} />
+          {icon.map((iconItem, index) => (
+            <IconBtn key={index} onClick={iconItem.func}>
+              <Graphic name={`${iconItem.iconName}`} />
             </IconBtn>
-          )}
-          {icon.iconR && (
-            <IconBtn>
-              <Graphic name={`${icon.iconR}`} />
-            </IconBtn>
-          )}
+          ))}
         </IconWarp>
       )}
       {text && (
         <TextWarp>
-          {text.textL && (
-            <TextBtn>
-              <Body1>{text.textL}</Body1>
+          {text.map((textItem, index) => (
+            <TextBtn key={index} onClick={textItem.func}>
+              <Body1>{textItem.textName}</Body1>
             </TextBtn>
-          )}
-          {text.textR && (
-            <TextBtn>
-              <Body1>{text.textR}</Body1>
-            </TextBtn>
-          )}
+          ))}
         </TextWarp>
       )}
       {counter && (
