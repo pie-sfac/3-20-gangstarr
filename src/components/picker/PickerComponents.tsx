@@ -13,3 +13,9 @@ export const Picker = {
   `,
   PickerContentsBox: styled.div``,
 };
+
+export const PickerButtonBox = styled.div`
+  display: flex;
+  gap: 8px;
+  padding: 12px 36px 16px 36px;
+`;
