@@ -1,4 +1,4 @@
-import { itemStyles } from '../styles/item';
+import { itemStyles } from '../components/item/item';
 import { IitemProps, IitemStyleProps } from '../types/itemTypes';
 
 export const getItemStyleOptions = (

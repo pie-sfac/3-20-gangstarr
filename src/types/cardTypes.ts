@@ -3,6 +3,7 @@ import { HTMLAttributes } from 'react';
 export interface CardLinkMediumProps extends HTMLAttributes<HTMLDivElement> {
   imageUrl?: string;
   isDelete?: boolean;
+  description?: string;
 }
 
 export interface CardTextStyleProps {
