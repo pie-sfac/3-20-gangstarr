@@ -99,9 +99,11 @@ const AppBar = ({
           <PageNameWarp size={size}>
             <Body1>{title}</Body1>
           </PageNameWarp>
-          <IconButton>
-            <Icon name={'close'} />
-          </IconButton>
+          {icon?.map((iconItem, index) => (
+            <IconButton key={index} onClick={iconItem.func}>
+              <Icon name={`${iconItem.iconName}`} />
+            </IconButton>
+          ))}
         </SizeWrap>
       ) : (
         <SizeWrap>
