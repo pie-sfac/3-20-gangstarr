@@ -36,6 +36,7 @@ const TextFieldContainer = styled.input<{
   }
   &:read-only {
     cursor: pointer;
+    color: ${color.textGray900};
   }
 `;
 
