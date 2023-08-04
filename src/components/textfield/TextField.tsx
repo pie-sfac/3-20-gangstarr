@@ -34,6 +34,9 @@ const TextFieldContainer = styled.input<{
     border: ${textFieldStyles['disable'].border};
     color: ${textFieldStyles['disable'].color};
   }
+  &:read-only {
+    cursor: pointer;
+  }
 `;
 
 const TextFieldLabel = styled.label`
