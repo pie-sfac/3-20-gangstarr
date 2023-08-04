@@ -116,5 +116,3 @@ const TextField = forwardRef<HTMLInputElement, ItextFieldProps>(
 );
 
 export default TextField;
-
-//validate가 false일 때, readonly값이 들어가면 cursor: point
