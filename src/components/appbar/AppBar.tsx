@@ -1,21 +1,30 @@
 import { styled } from 'styled-components';
-import { Icon, Graphic } from '../icon';
+import { Icon } from '../icon';
 import { Body1 } from '../typography';
 import { IappBarProps } from '../../types/appBarTypes';
 import { color } from '../../styles';
 
-const AppBarContainer = styled.div`
+const AppBarContainer = styled.div<IappBarProps>`
   border-bottom: 1px solid ${color.gray200};
-  width: 1024px;
-  height: 48px;
+  width: ${(props) => (props.size === 'medium' ? '650px' : '1024px')};
+  height: ${(props) => (props.size === 'full' ? '56px' : '48px')};
   padding: 12px 16px;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  gap: 10px;
+  align-items: center;
+`;
+
+const SizeWrap = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
 `;
 
 const GoBackButton = styled.button`
+  width: 24px;
+  height: 24px;
   appearance: none;
   border: none;
   background: none;
@@ -24,7 +33,8 @@ const GoBackButton = styled.button`
   cursor: pointer;
 `;
 
-const PageNameWarp = styled.div`
+const PageNameWarp = styled.div<IappBarProps>`
+  text-align: ${(props) => (props.size === 'full' ? 'center' : 'left')};
   flex: 1;
 `;
 const IconWarp = styled.div`
@@ -42,7 +52,7 @@ const TextWarp = styled.div`
   gap: 20px;
 `;
 
-const IconBtn = styled.button`
+const IconButton = styled.button`
   width: 24px;
   height: 24px;
   appearance: none;
@@ -53,7 +63,7 @@ const IconBtn = styled.button`
   cursor: pointer;
 `;
 
-const TextBtn = styled.button`
+const TextButton = styled.button`
   width: 32px;
   text-align: right;
   appearance: none;
@@ -64,7 +74,7 @@ const TextBtn = styled.button`
   cursor: pointer;
 `;
 
-const CounterBtn = styled.button`
+const CounterButton = styled.button`
   width: 80px;
   text-align: right;
   appearance: none;
@@ -75,44 +85,63 @@ const CounterBtn = styled.button`
   cursor: pointer;
 `;
 
-const AppBar = ({ title, icon, text, counter }: IappBarProps): JSX.Element => {
+const AppBar = ({
+  size,
+  title,
+  icon,
+  text,
+  counter,
+}: IappBarProps): JSX.Element => {
   return (
-    <AppBarContainer>
-      <GoBackButton
-        onClick={() => {
-          history.go(-1);
-        }}>
-        <Icon name={'back'} />
-      </GoBackButton>
-      <PageNameWarp>
-        <Body1>{title}</Body1>
-      </PageNameWarp>
-      {icon && (
-        <IconWarp>
-          {icon.map((iconItem, index) => (
-            <IconBtn key={index} onClick={iconItem.func}>
-              <Graphic name={`${iconItem.iconName}`} />
-            </IconBtn>
-          ))}
-        </IconWarp>
-      )}
-      {text && (
-        <TextWarp>
-          {text.map((textItem, index) => (
-            <TextBtn key={index} onClick={textItem.func}>
-              <Body1>{textItem.textName}</Body1>
-            </TextBtn>
-          ))}
-        </TextWarp>
-      )}
-      {counter && (
-        <TextWarp>
-          <CounterBtn>
-            <Body1>
-              {counter.text}({counter.count})
-            </Body1>
-          </CounterBtn>
-        </TextWarp>
+    <AppBarContainer size={size}>
+      {size === 'full' ? (
+        <SizeWrap>
+          <PageNameWarp size={size}>
+            <Body1>{title}</Body1>
+          </PageNameWarp>
+          <IconButton>
+            <Icon name={'close'} />
+          </IconButton>
+        </SizeWrap>
+      ) : (
+        <SizeWrap>
+          <GoBackButton
+            onClick={() => {
+              history.go(-1);
+            }}>
+            <Icon name={'back'} />
+          </GoBackButton>
+          <PageNameWarp size={size}>
+            <Body1>{title}</Body1>
+          </PageNameWarp>
+          {icon && (
+            <IconWarp>
+              {icon.map((iconItem, index) => (
+                <IconButton key={index} onClick={iconItem.func}>
+                  <Icon name={`${iconItem.iconName}`} />
+                </IconButton>
+              ))}
+            </IconWarp>
+          )}
+          {text && (
+            <TextWarp>
+              {text.map((textItem, index) => (
+                <TextButton key={index} onClick={textItem.func}>
+                  <Body1>{textItem.textName}</Body1>
+                </TextButton>
+              ))}
+            </TextWarp>
+          )}
+          {counter && (
+            <TextWarp>
+              <CounterButton onClick={counter.func}>
+                <Body1>
+                  {counter.text}({counter.count})
+                </Body1>
+              </CounterButton>
+            </TextWarp>
+          )}
+        </SizeWrap>
       )}
     </AppBarContainer>
   );

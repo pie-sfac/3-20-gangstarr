@@ -1,7 +1,7 @@
-import { graphicKey } from './graphicTypes';
+import { iconsKey } from './iconTypes';
 
 interface iconProp {
-  iconName: graphicKey;
+  iconName: iconsKey;
   func: () => void;
 }
 interface textProp {
@@ -10,8 +10,9 @@ interface textProp {
 }
 
 export interface IappBarProps {
+  size?: 'medium' | 'large' | 'full';
   title?: string;
   icon?: iconProp[];
   text?: textProp[];
-  counter?: { text?: string; count?: number };
+  counter?: { text?: string; count?: number; func: () => void };
 }
