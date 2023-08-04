@@ -5,7 +5,7 @@ import {
 } from '../../types/textfieldTypes';
 import { getTextFieldStyleOptions } from '../../util/textFieldUtils';
 import { textFieldStyles } from './textfield';
-import { useState } from 'react';
+import { useState, forwardRef } from 'react';
 import { font, color } from '../../styles';
 
 const TextFieldContainer = styled.input<{
@@ -50,60 +50,66 @@ const Message = styled.p`
   color: ${({ color }) => color};
 `;
 
-const TextField = ({
-  state,
-  id,
-  title,
-  isError,
-  customErrorMessage,
-  customSuccessMessage,
-  customInactiveMessage,
-  placeholder,
-  validate,
-  ...props
-}: ItextFieldProps): JSX.Element => {
-  const [isEmpty, setIsEmpty] = useState(true);
-  return (
-    <>
-      <TextFieldLabel htmlFor={id}>{title}</TextFieldLabel>
-      <TextFieldContainer
-        id={id}
-        $state={state}
-        $styleOptions={
-          isEmpty
-            ? getTextFieldStyleOptions('inactive')
-            : !validate
-            ? getTextFieldStyleOptions('activated')
-            : isError
-            ? getTextFieldStyleOptions('error')
-            : getTextFieldStyleOptions('positive')
-        }
-        placeholder={placeholder}
-        {...props}
-        value={props.value}
-        onChange={(e) => {
-          if (e.target.value !== '') setIsEmpty(false);
-          else setIsEmpty(true);
-          if (props.onChange) props.onChange(e);
-        }}></TextFieldContainer>
+const TextField = forwardRef<HTMLInputElement, ItextFieldProps>(
+  (
+    {
+      state,
+      id,
+      title,
+      isError,
+      customErrorMessage,
+      customSuccessMessage,
+      customInactiveMessage,
+      placeholder,
+      validate,
+      ...props
+    },
+    ref,
+  ): JSX.Element => {
+    const [isEmpty, setIsEmpty] = useState(true);
+    return (
+      <>
+        <TextFieldLabel htmlFor={id}>{title}</TextFieldLabel>
+        <TextFieldContainer
+          id={id}
+          $state={state}
+          $styleOptions={
+            isEmpty
+              ? getTextFieldStyleOptions('inactive')
+              : !validate
+              ? getTextFieldStyleOptions('activated')
+              : isError
+              ? getTextFieldStyleOptions('error')
+              : getTextFieldStyleOptions('positive')
+          }
+          placeholder={placeholder}
+          {...props}
+          value={props.value}
+          onChange={(e) => {
+            if (e.target.value !== '') setIsEmpty(false);
+            else setIsEmpty(true);
+            if (props.onChange) props.onChange(e);
+          }}
+          ref={ref}></TextFieldContainer>
 
-      {validate ? (
-        isEmpty ? (
-          <Message color={color.textGray400}>
-            {customInactiveMessage || '인액티브메시지를 입력해주세요.'}
-          </Message>
-        ) : isError ? (
-          <Message color={color.systemError}>
-            {customErrorMessage || '에러메시지를 입력해주세요.'}
-          </Message>
-        ) : (
-          <Message color={color.systemPositive}>
-            {customSuccessMessage || '성공메시지를 입력해주세요.'}
-          </Message>
-        )
-      ) : null}
-    </>
-  );
-};
+        {validate ? (
+          isEmpty ? (
+            <Message color={color.textGray400}>
+              {customInactiveMessage || '인액티브메시지를 입력해주세요.'}
+            </Message>
+          ) : isError ? (
+            <Message color={color.systemError}>
+              {customErrorMessage || '에러메시지를 입력해주세요.'}
+            </Message>
+          ) : (
+            <Message color={color.systemPositive}>
+              {customSuccessMessage || '성공메시지를 입력해주세요.'}
+            </Message>
+          )
+        ) : null}
+      </>
+    );
+  },
+);
 
 export default TextField;
