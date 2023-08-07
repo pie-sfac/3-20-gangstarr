@@ -1,4 +1,4 @@
-import { labelStyles } from '../components/label/label';
+import { labelStyles } from '../components/label/labelStyle';
 import { IlabelProps, IlabelStyleProps } from '../types/labelTypes';
 
 export const getLabelStyleOptions = (

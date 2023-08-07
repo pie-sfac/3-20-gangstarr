@@ -35,7 +35,7 @@ const ButtonContainer = styled.button<{
   }
 `;
 
-export const Button = ({
+const Button = ({
   children,
   size,
   fill,
@@ -54,3 +54,5 @@ export const Button = ({
     </>
   );
 };
+
+export default Button;

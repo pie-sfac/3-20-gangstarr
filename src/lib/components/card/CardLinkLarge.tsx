@@ -1,6 +1,5 @@
 import { styled } from 'styled-components';
 import CardBase from './CardBase';
-import defaultImage from '../../assets/defaultLargeImage.png';
 import { color } from '../../styles';
 import { Body2, Caption1 } from '../typography';
 import { CardLinkLargeProps } from '../../types/cardTypes';
@@ -50,7 +49,7 @@ const CardLinkLargeTextDescription = styled(Caption1)`
 `;
 
 const CardLinkLarge = ({
-  imageUrl = defaultImage,
+  imageUrl,
   title = '영상 제목입니다. 두 줄까지 허용됩니다. ',
   description = '영상 메모 영역입니다. 2줄까지 하용됩니다. ',
   ...props

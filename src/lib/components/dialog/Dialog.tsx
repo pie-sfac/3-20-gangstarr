@@ -90,7 +90,6 @@ export const Dialog = ({
   const [isVisible, setIsVisible] = useState(isShow);
 
   useEffect(() => {
-    if (!isShow) throw new Error('Cannot find isHide');
     if (!onHanndleShow) throw new Error('Cannot find onHanndleHide');
     if (!title) throw new Error('Cannot find title');
     if (!grayButtonName) throw new Error('Cannot find grayButtonName');

@@ -1,15 +1,18 @@
 {
   "name": "3-20-gangstarr",
-  "private": true,
+  "private": false,
   "version": "0.0.0",
   "type": "module",
+  "main": "dist/lib/index.js",
+  "types": "dist/lib/index.d.ts",
+  "browser": "./browser/specific/main.js",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint src --ext ts,tsx --cache --max-warnings 0",
     "format": "prettier --cache --write .",
     "preview": "vite preview",
-    "prepare": "husky install"
+    "prepare": "rm -rf dist && mkdir dist && tsc"
   },
   "dependencies": {
     "react": "^18.2.0",

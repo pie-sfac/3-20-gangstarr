@@ -4,7 +4,7 @@ import {
   ItextFieldStyleProps,
 } from '../../types/textfieldTypes';
 import { getTextFieldStyleOptions } from '../../util/textFieldUtils';
-import { textFieldStyles } from './textfield';
+import { textFieldStyles } from './textfieldStyle';
 import { useState, forwardRef } from 'react';
 import { font, color } from '../../styles';
 

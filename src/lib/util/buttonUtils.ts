@@ -1,4 +1,4 @@
-import { buttonStyles } from '../components/button/button';
+import { buttonStyles } from '../components/button/buttonStyle';
 import { IbuttonProps, IbuttonStyleProps } from '../types/buttonTypes';
 
 export const getButtonStyleOptions = (

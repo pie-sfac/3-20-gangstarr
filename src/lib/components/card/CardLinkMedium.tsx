@@ -1,6 +1,5 @@
 import { styled } from 'styled-components';
 import CardBase from './CardBase';
-import defaultImage from '../../assets/defaultMediumImage.png';
 import { color } from '../../styles';
 import { Body4 } from '../typography';
 import { Icon } from '../icon';
@@ -45,7 +44,7 @@ const CardLinkMediumText = styled(Body4)`
 `;
 
 const CardLinkMedium = ({
-  imageUrl = defaultImage,
+  imageUrl,
   isDelete,
   description = '허리 디스크 질환이 의심될때허리 디스크 질환이 의심될때..',
   ...props

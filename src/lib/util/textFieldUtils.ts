@@ -1,4 +1,4 @@
-import { textFieldStyles } from '../components/textfield/textfield';
+import { textFieldStyles } from '../components/textfield/textfieldStyle';
 import { ItextFieldProps, ItextFieldStyleProps } from '../types/textfieldTypes';
 
 export const getTextFieldStyleOptions = (

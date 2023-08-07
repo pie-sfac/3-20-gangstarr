@@ -1,5 +1,5 @@
 import { styled } from 'styled-components';
-import { typography } from './typography.ts';
+import { typography } from './typographyStyle';
 
 export const Headline = styled.p`
   font-size: ${typography.headline.fontSize};
