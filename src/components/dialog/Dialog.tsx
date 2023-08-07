@@ -1,32 +1,12 @@
-import { keyframes, styled } from 'styled-components';
+import { styled } from 'styled-components';
 import { color } from '../../styles';
 import { Icon } from '../icon';
-import { useEffect, useReducer } from 'react';
+import { useEffect, useState } from 'react';
 import { Body4, Title6 } from '../typography';
-import { IDialogButtonProps, IDialogProps } from '../../types/dialogTypes';
+import { IdialogProps } from '../../types/dialogTypes';
 import useOutsideClick from '../../hooks/useOutsideClick';
 import { Button } from '../button';
-import useDialogDispatch from '../../hooks/useDialogDispatch';
-import { DialogContext, DialogReducer } from '../../context/dialogContext';
-import { onCloseModal } from '../../util';
-
-const fadeIn = keyframes`
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-`;
-
-const fadeOut = keyframes`
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-`;
+import { keyframe } from '../../styles/keyframe';
 
 const DialogContainer = styled.div<{ $isVisible: boolean }>`
   position: fixed;
@@ -36,7 +16,9 @@ const DialogContainer = styled.div<{ $isVisible: boolean }>`
   min-height: 100vh;
   height: 100%;
   background: ${color.background};
-  animation: ${({ $isVisible }) => ($isVisible ? fadeIn : fadeOut)} 0.3s ease-in;
+  animation: ${({ $isVisible }) =>
+      $isVisible ? keyframe.fadeIn : keyframe.fadeOut}
+    0.3s ease-in;
   visibility: ${({ $isVisible }) => ($isVisible ? 'visible' : 'hidden')};
   transition: visibility 0.3s ease-out;
 `;
@@ -67,76 +49,88 @@ const CloseButton = styled.button`
   border: none;
 `;
 
-export const DialogContenets = styled.div`
+const DialogContenets = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 40px 16px 20px 16px;
 `;
 
-export const DialogButtonBox = styled.div`
+const DialogButtonBox = styled.div`
   display: flex;
   gap: 8px;
   margin-top: 20px;
 `;
 
-export const DialogTitle = styled(Title6)`
+const DialogTitle = styled(Title6)`
   margin-bottom: 8px;
 `;
 
-export const DialogDescription = styled(Body4)`
+const DialogDescription = styled(Body4)`
   text-align: center;
 `;
 
-export const DialogButton = ({
-  children,
-  size,
-  fill,
-  mode,
-  ...props
-}: IDialogButtonProps): JSX.Element => {
-  const dispatch = useDialogDispatch();
-
-  return (
-    <Button
-      size={size}
-      fill={fill}
-      mode={mode}
-      {...props}
-      onClick={() => onCloseModal(dispatch, props.onClick)}>
-      {children}
-    </Button>
-  );
-};
-
 export const Dialog = ({
-  isHide,
-  onHanndleHide,
-  children,
-}: IDialogProps): JSX.Element => {
-  const [isVisible, dispatch] = useReducer(DialogReducer, true);
-  const dialogRef = useOutsideClick(() =>
-    onCloseModal(dispatch, onHanndleHide),
-  );
+  isShow,
+  onHanndleShow,
+  title,
+  description,
+  primaryButtonName,
+  onClickPrimaryButton,
+  grayButtonName,
+  onClickGrayButton,
+}: IdialogProps): JSX.Element => {
+  const onCloseModal = () => {
+    setIsVisible(false);
+    setTimeout(() => {
+      onHanndleShow();
+    }, 300);
+  };
+  const dialogRef = useOutsideClick(onCloseModal);
+  const [isVisible, setIsVisible] = useState(isShow);
 
   useEffect(() => {
-    isHide ? dispatch('TRUE') : dispatch('FALSE');
-  }, [isHide]);
+    if (!isShow) throw new Error('Cannot find isHide');
+    if (!onHanndleShow) throw new Error('Cannot find onHanndleHide');
+    if (!title) throw new Error('Cannot find title');
+    if (!grayButtonName) throw new Error('Cannot find grayButtonName');
+  }, []);
 
   return (
     <>
-      {isHide && (
-        <DialogContext.Provider value={{ isVisible, dispatch }}>
-          <DialogContainer $isVisible={isVisible}>
-            <DialogBox ref={dialogRef}>
-              <CloseButton
-                onClick={() => onCloseModal(dispatch, onHanndleHide)}>
-                <Icon name='close' />
-              </CloseButton>
-              {children}
-            </DialogBox>
-          </DialogContainer>
-        </DialogContext.Provider>
+      {isShow && (
+        <DialogContainer $isVisible={isVisible}>
+          <DialogBox ref={dialogRef}>
+            <CloseButton onClick={onCloseModal}>
+              <Icon name='close' />
+            </CloseButton>
+            <DialogContenets>
+              <DialogTitle>{title}</DialogTitle>
+              <DialogDescription>{description}</DialogDescription>
+              <DialogButtonBox>
+                <Button
+                  size='medium'
+                  onClick={() => {
+                    onCloseModal();
+                    onClickGrayButton();
+                  }}>
+                  {grayButtonName}
+                </Button>
+                {primaryButtonName && onClickPrimaryButton && (
+                  <Button
+                    size='medium'
+                    mode='enabled'
+                    onClick={() => {
+                      onCloseModal();
+                      onClickPrimaryButton();
+                    }}>
+                    {primaryButtonName}
+                  </Button>
+                )}
+              </DialogButtonBox>
+            </DialogContenets>
+          </DialogBox>
+        </DialogContainer>
       )}
     </>
   );
