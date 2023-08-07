@@ -1,2 +1,2 @@
-export * from './TopNavigationBar';
-export * from './BottomNavigationBar';
+export { default as TopNavigationBar } from './TopNavigationBar';
+export { default as BottomNavigationBar } from './BottomNavigationBar';

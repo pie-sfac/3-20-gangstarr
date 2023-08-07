@@ -5,6 +5,7 @@ import { Body4 } from '../typography';
 import { Icon } from '../icon';
 import { CardLinkMediumProps } from '../../types/cardTypes';
 import { HTMLAttributes } from 'react';
+import defaultImage from '../../assets/defaultMediumImage.png';
 
 const CardLinkMediumContainer = styled(CardBase)`
   width: 244px;
@@ -44,7 +45,7 @@ const CardLinkMediumText = styled(Body4)`
 `;
 
 const CardLinkMedium = ({
-  imageUrl,
+  imageUrl = defaultImage,
   isDelete,
   description = '허리 디스크 질환이 의심될때허리 디스크 질환이 의심될때..',
   ...props

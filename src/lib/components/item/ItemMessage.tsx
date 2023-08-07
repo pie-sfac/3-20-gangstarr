@@ -2,9 +2,9 @@ import { Icon } from '../icon';
 import { Body4 } from '../typography';
 import { IitemProps, IitemTemplateProps } from '../../types/itemTypes';
 import { getItemStyleOptions } from '../../util';
-import { Item } from '.';
+import { Item } from './ItemComponents';
 
-export const ItemMessage = ({
+const ItemMessage = ({
   fill,
   memo = '메모가 없습니다.',
   date = '2023 - 00 - 00',
@@ -35,3 +35,5 @@ export const ItemMessage = ({
     </Item.ItemContainer>
   );
 };
+
+export default ItemMessage;

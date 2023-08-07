@@ -3,9 +3,9 @@ import { Body2, Body4 } from '../typography';
 import { Label } from '../label';
 import { IitemTemplateProps, IitemProps } from '../../types/itemTypes';
 import { getItemStyleOptions } from '../../util';
-import { Item } from '.';
+import { Item } from './ItemComponents';
 
-export const ItemMember1 = ({
+const ItemMember1 = ({
   fill,
   name = '김아무개',
   trainer = '김파이',
@@ -46,3 +46,5 @@ export const ItemMember1 = ({
     </Item.ItemContainer>
   );
 };
+
+export default ItemMember1;

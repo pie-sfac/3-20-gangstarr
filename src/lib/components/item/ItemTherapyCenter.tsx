@@ -1,9 +1,9 @@
 import { Body4 } from '../typography';
 import { IitemProps, IitemTemplateProps } from '../../types/itemTypes';
 import { getItemStyleOptions } from '../../util';
-import { Item } from '.';
+import { Item } from './ItemComponents';
 
-export const ItemTherapyCenter = ({
+const ItemTherapyCenter = ({
   fill,
   date = '2023 - 00 - 00',
   description = '운동 수행 영상',
@@ -32,3 +32,5 @@ export const ItemTherapyCenter = ({
     </Item.ItemContainer>
   );
 };
+
+export default ItemTherapyCenter;

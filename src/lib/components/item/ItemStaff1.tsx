@@ -2,9 +2,9 @@ import { Graphic } from '../icon';
 import { Body2, Body4 } from '../typography';
 import { getItemStyleOptions } from '../../util';
 import { IitemProps, IitemTemplateProps } from '../../types/itemTypes';
-import { Item } from '.';
+import { Item } from './ItemComponents';
 
-export const ItemStaff1 = ({
+const ItemStaff1 = ({
   fill,
   name = '김직원',
   phone = '010 - 1234 - 5678',
@@ -38,3 +38,5 @@ export const ItemStaff1 = ({
     </Item.ItemContainer>
   );
 };
+
+export default ItemStaff1;

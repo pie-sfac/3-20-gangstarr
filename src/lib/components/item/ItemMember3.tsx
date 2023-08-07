@@ -3,9 +3,9 @@ import { Body2, Body4 } from '../typography';
 import { Label } from '../label';
 import { IitemTemplateProps, IitemProps } from '../../types/itemTypes';
 import { getItemStyleOptions } from '../../util';
-import { Item } from '.';
+import { Item } from './ItemComponents';
 
-export const ItemMember3 = ({
+const ItemMember3 = ({
   fill,
   name = '김아무개',
   phone = '010 - 1234 - 5678',
@@ -52,3 +52,5 @@ export const ItemMember3 = ({
     </Item.ItemContainer>
   );
 };
+
+export default ItemMember3;

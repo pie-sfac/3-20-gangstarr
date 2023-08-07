@@ -1,7 +1,6 @@
-export { ItemMember1 } from './ItemMember1';
-export { ItemMember3 } from './ItemMember3';
-export { ItemStaff1 } from './ItemStaff1';
-export { ItemRecord } from './ItemRecord';
-export { ItemTherapyCenter } from './ItemTherapyCenter';
-export { ItemMessage } from './ItemMessage';
-export { Item } from './ItemComponents';
+export { default as ItemMember1 } from './ItemMember1';
+export { default as ItemMember3 } from './ItemMember3';
+export { default as ItemStaff1 } from './ItemStaff1';
+export { default as ItemRecord } from './ItemRecord';
+export { default as ItemTherapyCenter } from './ItemTherapyCenter';
+export { default as ItemMessage } from './ItemMessage';

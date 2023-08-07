@@ -70,7 +70,7 @@ const DialogDescription = styled(Body4)`
   text-align: center;
 `;
 
-export const Dialog = ({
+const Dialog = ({
   isShow,
   onHanndleShow,
   title,
@@ -134,3 +134,5 @@ export const Dialog = ({
     </>
   );
 };
+
+export default Dialog;
