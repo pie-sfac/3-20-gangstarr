@@ -33,7 +33,7 @@ const SnackBarContainer = styled.div<IappbarStyleProps>`
   border-radius: 4px;
   position: absolute;
   bottom: ${(props) => (props.$usedAppBar ? '59px' : '24px')};
-  animation: ${(props) => (props.$isShowing ? FadeIn : FadeOut)} 0.3s ease;
+  animation: ${(props) => (props.$isVisible ? FadeIn : FadeOut)} 0.3s ease;
 `;
 
 const DescriptionWrap = styled.div`
@@ -65,7 +65,7 @@ const SnackBar = ({
   return (
     <>
       <SnackBarContainer
-        $isShowing={isVisible}
+        $isVisible={isVisible}
         $usedAppBar={usedAppBar}
         $widthSize={widthSize}>
         <DescriptionWrap>

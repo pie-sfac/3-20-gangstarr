@@ -1,5 +1,5 @@
 export interface IappbarStyleProps {
-  $isShowing?: boolean;
+  $isVisible?: boolean;
   $widthSize?: number;
   $usedAppBar?: boolean;
 }
