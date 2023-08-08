@@ -27,7 +27,6 @@ const TimePicker = () => {
   const hours = Array(24)
     .fill(null)
     .map((e, i) => (e = i + 1));
-  const [selectedIndex, setSelectedIndex] = useState(0);
 
   return (
     <TimePickerContainer>
