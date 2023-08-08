@@ -3,8 +3,7 @@ import { color, font } from '../../../styles';
 
 const DatePickerDayHearderContainer = styled.div`
   height: 40px;
-  border: 1px solid ${color.borderLine200};
-  border-width: 1px 0 1px 0;
+  border-bottom: 1px solid ${color.borderLine200};
   padding: 10px 38.5px;
   background: ${color.fillGray50};
 `;

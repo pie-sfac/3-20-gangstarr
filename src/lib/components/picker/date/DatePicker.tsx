@@ -1,4 +1,4 @@
-import { Picker, PickerButtonBox } from '../PickerComponents';
+import { Picker } from '../PickerComponents';
 import { useEffect, useState } from 'react';
 import { Button } from '../../button';
 import { getCurrentDate } from '../../../util/pickerUtils';
@@ -66,7 +66,7 @@ const DatePicker = ({
           size={size}
         />
       </Picker.PickerContentsBox>
-      <PickerButtonBox>
+      <Picker.PickerButtonBox>
         <Button size='medium' onClick={onClosePicker}>
           취소
         </Button>
@@ -83,7 +83,7 @@ const DatePicker = ({
           }}>
           확인
         </Button>
-      </PickerButtonBox>
+      </Picker.PickerButtonBox>
     </Picker.PickerContainer>
   );
 };

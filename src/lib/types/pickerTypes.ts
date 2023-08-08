@@ -21,3 +21,21 @@ export interface IdatePickerCalendarItemProps {
   $isToday: boolean;
   $isSelected: boolean;
 }
+
+export interface IselectedTimeTypes {
+  hour?: number;
+  minute?: number;
+}
+
+export interface ItimepickerProps {
+  onClickConfirm: Dispatch<SetStateAction<IselectedTimeTypes | undefined>>;
+  onClosePicker: () => void;
+  prevSelectedTime?: IselectedTimeTypes | undefined;
+}
+
+export interface ItimePickerSelectProps {
+  mode: string;
+  size: number;
+  initalTime: number;
+  setSelectTime: Dispatch<SetStateAction<IselectedTimeTypes | undefined>>;
+}

@@ -1,46 +1,57 @@
-import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
 import { styled } from 'styled-components';
+import { Picker } from '../PickerComponents';
+import { useState } from 'react';
+import {
+  IselectedTimeTypes,
+  ItimepickerProps,
+} from '../../../types/pickerTypes';
+import { Button } from '../../button';
+import TimePickerSelectBox from './TimePickerSelectBox';
 
-const TimePickerContainer = styled.div`
-  width: 77px;
-
-  & > div {
-    height: 280px;
-    font-size: 26px;
-
-    & > div > div {
-    }
-  }
-`;
-
-const CustomSwiperSlide = styled(SwiperSlide)<{ $isActive?: boolean }>`
+const TimePickerTitle = styled.div`
   display: flex;
   justify-content: center;
-  align-items: center;
-  padding: 4px 0;
-  height: 56px !important;
 `;
 
-const TimePicker = () => {
-  const hours = Array(24)
-    .fill(null)
-    .map((e, i) => (e = i + 1));
+const TimePicker = ({
+  prevSelectedTime,
+  onClickConfirm,
+  onClosePicker,
+}: ItimepickerProps): JSX.Element => {
+  const [currntSelectedTime, setCurrentSelectTime] = useState<
+    IselectedTimeTypes | undefined
+  >(prevSelectedTime);
 
   return (
-    <TimePickerContainer>
-      <Swiper
-        direction={'vertical'}
-        slidesPerView={5}
-        loop={true}
-        slideToClickedSlide={true}
-        centeredSlides={true}>
-        {hours.map((e) => (
-          <CustomSwiperSlide key={e}></CustomSwiperSlide>
-        ))}
-      </Swiper>
-    </TimePickerContainer>
+    <Picker.PickerContainer>
+      <Picker.PickerHeader>
+        <TimePickerTitle>시간 설정</TimePickerTitle>
+      </Picker.PickerHeader>
+      <Picker.PickerContentsBox>
+        <TimePickerSelectBox
+          currntSelectedTime={currntSelectedTime}
+          setCurrentSelectTime={setCurrentSelectTime}
+        />
+      </Picker.PickerContentsBox>
+      <Picker.PickerButtonBox>
+        <Button
+          size='medium'
+          onClick={() => {
+            onClosePicker();
+          }}>
+          취소
+        </Button>
+        <Button
+          size='medium'
+          mode='enabled'
+          onClick={() => {
+            onClickConfirm(currntSelectedTime);
+            onClosePicker();
+          }}>
+          확인
+        </Button>
+      </Picker.PickerButtonBox>
+    </Picker.PickerContainer>
   );
 };
 

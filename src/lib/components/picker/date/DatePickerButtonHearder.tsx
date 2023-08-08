@@ -8,7 +8,6 @@ import { Dispatch, SetStateAction } from 'react';
 const DatePickerHeaderBox = styled.div`
   display: grid;
   grid-template-columns: 1fr 1px 1fr;
-  padding: 24px 20px 16px 20px;
   gap: 16px;
 
   & > div:nth-child(2) {
