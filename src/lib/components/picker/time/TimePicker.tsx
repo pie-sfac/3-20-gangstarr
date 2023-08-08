@@ -35,8 +35,7 @@ const TimePicker = () => {
         slidesPerView={5}
         loop={true}
         slideToClickedSlide={true}
-        centeredSlides={true}
-        onSlideChange={(swiper) => console.log(swiper.realIndex + 1)}>
+        centeredSlides={true}>
         {hours.map((e) => (
           <CustomSwiperSlide key={e}></CustomSwiperSlide>
         ))}
