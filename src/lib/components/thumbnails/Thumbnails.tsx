@@ -1,7 +1,11 @@
 import { styled } from 'styled-components';
 import { color, font } from '../../styles';
 import { Icon } from '../icon';
-import { IthumbnailsProps } from '../../types/thumbnailsTypes';
+import {
+  IthumbnailsProps,
+  IthumbnailsStyleProps,
+} from '../../types/thumbnailsTypes';
+import { getThumbnailsStyleOptions } from '../../util/thumbnailsUtils';
 
 const ThumbnailsContainer = styled.div<IthumbnailsProps>`
   width: 100px;
@@ -9,14 +13,13 @@ const ThumbnailsContainer = styled.div<IthumbnailsProps>`
   position: relative;
 `;
 
-const ThumbnailsImage = styled.img<IthumbnailsProps>`
+const ThumbnailsImage = styled.img<{
+  $styleOptions: IthumbnailsStyleProps;
+}>`
   width: 100px;
   height: 100px;
   border-radius: 4px;
-  border: ${(props) =>
-    props.mediaState === 'select' || props.mediaState === 'play'
-      ? 'none'
-      : '1px solid' + `${color.borderLine200}`};
+  border: ${({ $styleOptions }) => $styleOptions.imageBorder};
   object-fit: cover;
   position: relative;
 `;
@@ -36,25 +39,24 @@ const ThumbnailsTimeBox = styled.div`
   right: 8px;
 `;
 
-const ThumbnailsIconContainer = styled.div<IthumbnailsProps>`
+const ThumbnailsIconContainer = styled.div<{
+  $styleOptions: IthumbnailsStyleProps;
+}>`
   position: absolute;
-  width: ${(props) => (props.mediaState === 'delete' ? '24px' : '34px')};
-  height: ${(props) => (props.mediaState === 'delete' ? '24px' : '34px')};
-  top: ${(props) => (props.mediaState === 'delete' ? '-8px' : '34px')};
-  right: ${(props) => (props.mediaState === 'delete' ? '-8px' : '34px')};
+  width: ${({ $styleOptions }) => $styleOptions.iconWidth};
+  height: ${({ $styleOptions }) => $styleOptions.iconHeight};
+  top: ${({ $styleOptions }) => $styleOptions.iconTop};
+  right: ${({ $styleOptions }) => $styleOptions.iconRight};
   cursor: pointer;
 `;
 
-const ThumbnailsColorContainer = styled.div<IthumbnailsProps>`
+const ThumbnailsColorContainer = styled.div<{
+  $styleOptions: IthumbnailsStyleProps;
+}>`
   width: 100px;
   height: 100px;
   border-radius: 4px;
-  background-color: ${(props) =>
-    props.mediaState === 'select'
-      ? `${color.primary500}`
-      : props.mediaState === 'play' || props.mediaState === 'error'
-      ? 'rgba(40,40,40)'
-      : null};
+  background-color: ${({ $styleOptions }) => $styleOptions.background};
   position: absolute;
   top: 0;
   opacity: 0.6;
@@ -68,59 +70,60 @@ const ThumbnailsTextBox = styled.div`
   line-height: ${font.lineHeight.lineHeight128};
   color: ${color.gray300};
   position: absolute;
-  left: -20px;
+  left: 10px;
+  bottom: 25px;
 `;
 
 const Thumbnails = ({
   src,
-  mediaState,
-  mediaType,
+  state,
+  type,
   runningTime,
 }: IthumbnailsProps): JSX.Element => {
   return (
     <>
-      <ThumbnailsContainer mediaState={mediaState}>
-        <ThumbnailsImage src={src} mediaState={mediaState}></ThumbnailsImage>
-        {mediaType === 'video' && (
+      <ThumbnailsContainer>
+        <ThumbnailsImage
+          src={src}
+          $styleOptions={getThumbnailsStyleOptions(state)}></ThumbnailsImage>
+        {type === 'video' && (
           <>
             <ThumbnailsTimeBox>{runningTime}</ThumbnailsTimeBox>
-            {mediaState === 'play' && (
-              <>
-                <ThumbnailsColorContainer
-                  mediaState={mediaState}></ThumbnailsColorContainer>
-                <ThumbnailsIconContainer>
-                  <Icon name='playCircle32px' />
-                </ThumbnailsIconContainer>
-              </>
-            )}
           </>
         )}
 
-        {mediaState === 'error' ? (
-          <>
-            <ThumbnailsColorContainer
-              mediaState={mediaState}></ThumbnailsColorContainer>
-            <ThumbnailsIconContainer>
-              <Icon name='error32px' />
-              <ThumbnailsTextBox>원본 파일 삭제됨</ThumbnailsTextBox>
-            </ThumbnailsIconContainer>
-          </>
-        ) : null}
-
-        {mediaState === 'delete' && (
-          <ThumbnailsIconContainer mediaState={mediaState}>
+        {state === 'delete' && (
+          <ThumbnailsIconContainer
+            $styleOptions={getThumbnailsStyleOptions(state)}>
             <Icon name='mediaDelete' />
           </ThumbnailsIconContainer>
         )}
 
-        {mediaState === 'select' && (
+        {state === 'select' ||
+        state === 'error' ||
+        (type === 'video' && state === 'play') ? (
           <>
             <ThumbnailsColorContainer
-              mediaState={mediaState}></ThumbnailsColorContainer>
-            <ThumbnailsIconContainer mediaState={mediaState}>
-              <Icon name='checkCircle32px' />
+              $styleOptions={getThumbnailsStyleOptions(
+                state,
+              )}></ThumbnailsColorContainer>
+            <ThumbnailsIconContainer
+              $styleOptions={getThumbnailsStyleOptions(state)}>
+              <Icon
+                name={
+                  state === 'select'
+                    ? 'checkCircle32px'
+                    : state === 'error'
+                    ? 'error32px'
+                    : 'playCircle32px'
+                }
+              />
             </ThumbnailsIconContainer>
           </>
+        ) : null}
+
+        {state === 'error' && (
+          <ThumbnailsTextBox>원본 파일 삭제됨</ThumbnailsTextBox>
         )}
       </ThumbnailsContainer>
     </>
@@ -128,6 +131,3 @@ const Thumbnails = ({
 };
 
 export default Thumbnails;
-
-// select, error, play일 때 컬러 박스가 씌워지고 그 때 삼항 연산자로 색상을 구분하고, 또 다른 삼항연산자로 아이콘을 구분한다.
-// 그러면 굳이 상태를 다 나눠서 컴포넌트를 모두 써야 할 필요가 없다
