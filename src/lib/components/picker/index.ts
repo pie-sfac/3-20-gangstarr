@@ -1,2 +1,2 @@
-export { DatePicker } from './DatePicker';
-export { default as TimePicker } from './TimePicker';
+export { DatePicker } from './date';
+export { default as TimePicker } from './time/TimePicker';
