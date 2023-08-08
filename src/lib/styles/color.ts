@@ -32,7 +32,7 @@ export const color = {
   borderLine300: '#CFCFCF',
   borderLine200: '#E7E7E7',
   dialogBackground: 'rgba(40,40,40, 0.6)',
-  boxShadow: 'rgba(231, 231, 231, 0.8)',
+  boxShadow: '0px 0px 8px 2px rgba(231, 231, 231, 0.8)',
   fillGray300: '#CFCFCF',
   fillGray100: '#F4F4F4',
   fillGray50: '#FBFBFB',
