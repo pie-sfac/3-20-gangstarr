@@ -50,19 +50,22 @@ const SnackBar = ({
   widthSize,
 }: IsnackbarProps): JSX.Element => {
   const [isShowing, setIsShowing] = useState(true);
-  const timer = setTimeout(() => setIsShowing(false), time);
+  const [isVisible, setIsVisible] = useState(true);
+  const snackBarShowTime = setTimeout(() => setIsShowing(false), time);
+  const fadeTime = setTimeout(() => setIsVisible(false), time - 300);
 
   useEffect(() => {
     return () => {
       setSnackbarMessage('');
-      clearTimeout(timer);
+      clearTimeout(snackBarShowTime);
+      clearTimeout(fadeTime);
     };
   }, [isShowing]);
 
   return (
     <>
       <SnackBarContainer
-        $isShowing={isShowing}
+        $isShowing={isVisible}
         $usedAppBar={usedAppBar}
         $widthSize={widthSize}>
         <DescriptionWrap>
