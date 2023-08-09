@@ -11,3 +11,4 @@ export * from './popupmenu';
 export * from './tabs';
 export * from './textfield';
 export * from './typography';
+export * from './snackbar';
