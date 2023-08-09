@@ -1,4 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
+import { color } from './color';
+import check from '../assets/check.svg';
 
 const GlobalStyle = createGlobalStyle`
   *, *::before, *::after{
@@ -6,6 +8,44 @@ const GlobalStyle = createGlobalStyle`
     padding:0;
     font-family: 'Roboto', 'Pretendard';
     box-sizing: border-box;
+  }
+
+  input[type='checkbox'] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 1px solid ${color.gray300};
+    border-radius: 1.5px;
+    background: ${color.basicWhite};
+    position: relative;
+
+    &:checked {
+      background: ${color.primary300};
+      border: 1px solid ${color.primary300};
+
+      &::after {
+        content: '';
+        background-image: url(${check});
+        background-size: 13px 10px;
+        background-position: center;
+        background-repeat: no-repeat;
+        position: absolute;
+        top: 4px;
+        left: 2px;
+        width: 12px;
+        height: 9px;
+      }
+    }
+
+    &:disabled {
+      background: ${color.gray200};
+      border: 1px solid ${color.gray300}; 
+    }
+
+    &:disabled:checked {
+      background: ${color.gray300};
+    }
   }
 `;
 
