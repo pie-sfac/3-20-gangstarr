@@ -9,7 +9,7 @@
 |                                      팀장                                       |                                        팀원                                        |                                       팀원                                       |                                      팀원                                      |
 | :-----------------------------------------------------------------------------: | :--------------------------------------------------------------------------------: | :------------------------------------------------------------------------------: | :----------------------------------------------------------------------------: |
 | <img src="https://avatars.githubusercontent.com/sungin46" height=180 width=180> | <img src="https://avatars.githubusercontent.com/jennie-0530" height=180 width=180> | <img src="https://avatars.githubusercontent.com/0SCAR0421" height=180 width=180> | <img src="https://avatars.githubusercontent.com/dong-fa" height=180 width=180> |
-|           [홍성인 🐧](https://github.com/sungin46) <br/> **뭐 먹지**            |             [김준경 🐱](https://github.com/jennie-0530) <br/> **야옹**             |      [정연우 🐬](https://github.com/0SCAR0421) <br/> **최고보다는 최선을.**      |           [최동환 🦄](https://github.com/dong-fa) <br/> **어? 금지**           |
+|           [홍성인 🐧](https://github.com/sungin46) <br/> **뭐 먹지**            |     [김준경 🐱](https://github.com/jennie-0530) <br/> **개발 갱스터가 될래요**     |      [정연우 🐬](https://github.com/0SCAR0421) <br/> **최고보다는 최선을.**      |           [최동환 🦄](https://github.com/dong-fa) <br/> **어? 금지**           |
 
 ## 설치 방법
 
