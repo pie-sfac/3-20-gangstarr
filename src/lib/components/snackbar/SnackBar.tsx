@@ -2,7 +2,10 @@ import { styled } from 'styled-components';
 import { color, keyframe } from '../../styles';
 import { Caption1 } from '../typography';
 import { useEffect, useState } from 'react';
-import { IsnackbarProps, IappbarStyleProps } from '../../types/snackBarTypes';
+import {
+  IsnackbarProps,
+  IappbarStyleProps,
+} from '../../../types/snackBarTypes';
 
 const SnackBarContainer = styled.div<IappbarStyleProps>`
   width: ${(props) => (props.$widthSize ? `${props.$widthSize}px` : '100%')};
