@@ -1,26 +1,8 @@
-import { keyframes, styled } from 'styled-components';
-import { color } from '../../styles';
+import { styled } from 'styled-components';
+import { color, keyframe } from '../../styles';
 import { Caption1 } from '../typography';
 import { useEffect, useState } from 'react';
 import { IsnackbarProps, IappbarStyleProps } from '../../types/snackBarTypes';
-
-const FadeIn = keyframes`
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-`;
-
-const FadeOut = keyframes`
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-`;
 
 const SnackBarContainer = styled.div<IappbarStyleProps>`
   width: ${(props) => (props.$widthSize ? `${props.$widthSize}px` : '100%')};
@@ -33,7 +15,9 @@ const SnackBarContainer = styled.div<IappbarStyleProps>`
   border-radius: 4px;
   position: absolute;
   bottom: ${(props) => (props.$usedAppBar ? '59px' : '24px')};
-  animation: ${(props) => (props.$isVisible ? FadeIn : FadeOut)} 0.3s ease;
+  animation: ${(props) =>
+      props.$isVisible ? keyframe.fadeIn : keyframe.fadeOut}
+    0.3s ease;
 `;
 
 const DescriptionWrap = styled.div`
@@ -43,7 +27,7 @@ const DescriptionWrap = styled.div`
 `;
 
 const SnackBar = ({
-  discription,
+  description,
   time,
   setSnackbarMessage,
   usedAppBar,
@@ -69,7 +53,7 @@ const SnackBar = ({
         $usedAppBar={usedAppBar}
         $widthSize={widthSize}>
         <DescriptionWrap>
-          <Caption1>{discription}</Caption1>
+          <Caption1>{description}</Caption1>
         </DescriptionWrap>
       </SnackBarContainer>
     </>

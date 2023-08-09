@@ -5,7 +5,7 @@ export interface IappbarStyleProps {
 }
 
 export interface IsnackbarProps {
-  discription: string;
+  description: string;
   time: number;
   setSnackbarMessage: (message: string) => void;
   usedAppBar?: boolean;
