@@ -26,12 +26,14 @@ const DropdownArrow = styled.div`
 
 const DropdownSingle = () => {
   const [isFocused, setIsFocused] = useState(false);
-  console.log(setIsFocused);
 
+  const onFocused = () => {
+    setIsFocused(false);
+  };
   return (
     <DropdownBox>
       {/* 여기서 테두리 값 변경 받아야함 */}
-      <DropdownSelect>
+      <DropdownSelect onClick={onFocused}>
         <Caption1></Caption1>
       </DropdownSelect>
       <DropdownArrow>
