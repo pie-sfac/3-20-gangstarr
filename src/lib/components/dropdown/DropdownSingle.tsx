@@ -26,6 +26,7 @@ const DropdownArrow = styled.div`
 
 const DropdownSingle = () => {
   const [isFocused, setIsFocused] = useState(false);
+  console.log(setIsFocused);
 
   return (
     <DropdownBox>
