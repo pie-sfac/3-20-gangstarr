@@ -1,59 +1,12 @@
 import { styled } from 'styled-components';
 import { Icon, Graphic } from '../icon';
 import {
-  ITopNavigationBarProps,
-  ITabStylesProps,
+  ItopNavigationBarProps,
+  ItabStylesProps,
 } from '../../types/TopNavigationBarTypes';
 import { useState } from 'react';
 import { color } from '../../styles';
-
-const TopNavigationBar = ({
-  tapMenuLists,
-  userData,
-}: ITopNavigationBarProps) => {
-  const [selected, setSelected] = useState(0);
-
-  const tapList = tapMenuLists?.map((tapItem, index) => (
-    <TapItem
-      key={tapItem.tapName}
-      href={tapItem.path}
-      selected={selected === index ? true : false}
-      onClick={(event) => {
-        event.preventDefault();
-        setSelected(index);
-      }}>
-      {tapItem.tapName}
-    </TapItem>
-  ));
-
-  return (
-    <NavigationLayout>
-      <LogoWarp>
-        <Graphic name={'logo'} />
-      </LogoWarp>
-      <TapListWarp>
-        {tapList ? <MenuTap>{tapList}</MenuTap> : <MenuTap></MenuTap>}
-      </TapListWarp>
-      <Line />
-      <UserWrap>
-        <Graphic name={'profile24px'} />
-        {userData ? (
-          <UserData>
-            <div>{userData.name}</div>
-            <div>라벨내놔</div>
-          </UserData>
-        ) : (
-          <div>로그인이 필요합니다.</div>
-        )}
-
-        <Line />
-        <Icon name={'notice'} />
-      </UserWrap>
-    </NavigationLayout>
-  );
-};
-
-export default TopNavigationBar;
+import { Label } from '../label';
 
 const NavigationLayout = styled.div`
   border-bottom: 1px solid ${color.gray200};
@@ -100,7 +53,7 @@ const Line = styled.div`
   background: ${color.gray200};
 `;
 
-const TapItem = styled.a<ITabStylesProps>`
+const TapItem = styled.a<ItabStylesProps>`
   text-decoration: none;
   color: ${(props) => (props.selected ? color.primary500 : color.gray900)};
 `;
@@ -109,3 +62,51 @@ const UserData = styled.div`
   display: flex;
   gap: 8px;
 `;
+
+const TopNavigationBar = ({
+  tapMenuLists,
+  userData,
+}: ItopNavigationBarProps) => {
+  const [selected, setSelected] = useState(0);
+
+  const tapList = tapMenuLists?.map((tapItem, index) => (
+    <TapItem
+      key={tapItem.tapName}
+      href={tapItem.path}
+      selected={selected === index ? true : false}
+      onClick={(event) => {
+        event.preventDefault();
+        setSelected(index);
+      }}>
+      {tapItem.tapName}
+    </TapItem>
+  ));
+
+  return (
+    <NavigationLayout>
+      <LogoWarp>
+        <Graphic name={'logo'} />
+      </LogoWarp>
+      <TapListWarp>
+        {tapList ? <MenuTap>{tapList}</MenuTap> : <MenuTap></MenuTap>}
+      </TapListWarp>
+      <Line />
+      <UserWrap>
+        <Graphic name={'profile24px'} />
+        {userData ? (
+          <UserData>
+            <div>{userData.name}</div>
+            <Label>{userData.label}</Label>
+          </UserData>
+        ) : (
+          <div>로그인이 필요합니다.</div>
+        )}
+
+        <Line />
+        <Icon name={'notice'} />
+      </UserWrap>
+    </NavigationLayout>
+  );
+};
+
+export default TopNavigationBar;

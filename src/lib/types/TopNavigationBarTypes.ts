@@ -1,4 +1,4 @@
-export interface ITopNavigationBarProps {
+export interface ItopNavigationBarProps {
   tapMenuLists?: {
     tapName: string;
     path: string;
@@ -7,8 +7,9 @@ export interface ITopNavigationBarProps {
 }
 export interface IUserData {
   name: string;
+  label: string;
 }
 
-export interface ITabStylesProps {
+export interface ItabStylesProps {
   selected: boolean;
 }
