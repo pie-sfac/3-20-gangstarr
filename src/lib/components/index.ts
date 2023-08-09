@@ -12,3 +12,4 @@ export * from './tabs';
 export * from './textfield';
 export * from './typography';
 export * from './snackbar';
+export * from './picker';
