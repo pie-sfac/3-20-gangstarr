@@ -1,114 +1,41 @@
 import { styled } from 'styled-components';
-import { TextField } from '../textfield';
-import { useEffect, useRef, useState } from 'react';
-import { Icon } from '../icon';
 import { color } from '../../styles';
-import { Body3 } from '../typography';
+import { useState } from 'react';
+import { Icon } from '../icon';
+import { Caption1 } from '../typography';
 
 const DropdownBox = styled.div`
   display: inline-block;
   position: relative;
 `;
 
+const DropdownSelect = styled.div`
+  padding: 8px 12px;
+  border: 1px solid ${color.borderLine200};
+  border-radius: 10px;
+`;
+
 const DropdownArrow = styled.div`
   position: absolute;
-  top: 29px;
-  right: 16px;
+  top: -2px;
+  right: 0;
+  width: 24px;
+  height: 24px;
   cursor: pointer;
 `;
 
-const DropdownMenus = styled.div`
-  margin-top: 4px;
-  border: 1px solid ${color.borderLine200};
-  border-radius: 4px;
-  overflow: hidden;
-`;
-
-const DropdownMenu = styled.div`
-  padding: 12px 8px;
-  &:hover {
-    background-color: #bfd1ff;
-  }
-`;
-
-const DropdownSingle = ({
-  menuList,
-}: {
-  menuList: { id: number; menu: string }[];
-}) => {
+const DropdownSingle = () => {
   const [isFocused, setIsFocused] = useState(false);
-  const [value, setValue] = useState<string>('');
-  const dropdownRef = useRef<HTMLInputElement | null>(null);
-  const menuListRef = useRef<HTMLDivElement | null>(null);
-  const arrowRef = useRef<HTMLDivElement | null>(null);
-
-  const onFocused = () => {
-    setIsFocused(true);
-  };
-
-  const onClickMenu = (menu: string) => {
-    setValue(menu);
-    setIsFocused(false);
-  };
-
-  useEffect(() => {
-    const handleClick = (event: MouseEvent) => {
-      if (
-        dropdownRef.current &&
-        menuListRef.current &&
-        !dropdownRef.current.contains(event.target as HTMLElement) &&
-        !menuListRef.current.contains(event.target as HTMLElement) &&
-        !(
-          !isFocused &&
-          arrowRef.current &&
-          arrowRef.current.contains(event.target as HTMLElement)
-        )
-      )
-        setIsFocused(false);
-    };
-
-    document.addEventListener('mousedown', handleClick);
-
-    return () => {
-      document.removeEventListener('mousedown', handleClick);
-    };
-  }, []);
 
   return (
     <DropdownBox>
-      <TextField
-        id='dropdown'
-        title='드롭다운레고'
-        validate={false}
-        placeholder='선택해주세요'
-        value={value}
-        onFocus={onFocused}
-        ref={dropdownRef}
-        readOnly></TextField>
-      <DropdownArrow
-        onClick={() => {
-          if (dropdownRef.current !== null && !isFocused) {
-            dropdownRef.current.focus();
-          } else if (dropdownRef.current !== null && isFocused) {
-            setIsFocused(false);
-          }
-        }}
-        ref={arrowRef}>
-        {isFocused ? (
-          <Icon name='dropMore'></Icon>
-        ) : (
-          <Icon name='dropLess'></Icon>
-        )}
+      {/* 여기서 테두리 값 변경 받아야함 */}
+      <DropdownSelect>
+        <Caption1></Caption1>
+      </DropdownSelect>
+      <DropdownArrow>
+        {isFocused ? <Icon name='lessSmall' /> : <Icon name='moreSmall' />}
       </DropdownArrow>
-      {isFocused && (
-        <DropdownMenus ref={menuListRef}>
-          {menuList?.map((item) => (
-            <DropdownMenu onClick={() => onClickMenu(item.menu)} key={item.id}>
-              <Body3>{item.menu}</Body3>
-            </DropdownMenu>
-          ))}
-        </DropdownMenus>
-      )}
     </DropdownBox>
   );
 };
