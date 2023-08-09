@@ -1,4 +1,4 @@
-import { createGlobalStyle, styled } from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 import { color } from './color';
 import check from '../assets/check.svg';
 
