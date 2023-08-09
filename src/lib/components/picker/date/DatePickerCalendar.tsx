@@ -54,19 +54,8 @@ const DatePickerCalendarItem = styled.p<IdatePickerCalendarItemProps>`
     `
       position: relative;
       color: ${color.basicWhite} !important;
-
-      &::after {
-        content: '';
-        position: absolute;
-        width: 40px;
-        height: 40px;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        border-radius: 100%;
-        background: ${color.primary300};
-        z-index: -1;
-      }
+      background: ${color.primary300};
+      border-radius: 100%;
     `}
 `;
 
