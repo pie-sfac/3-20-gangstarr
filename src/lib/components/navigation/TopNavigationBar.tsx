@@ -3,7 +3,7 @@ import { Icon, Graphic } from '../icon';
 import {
   ItopNavigationBarProps,
   ItabStylesProps,
-} from '../../types/TopNavigationBarTypes';
+} from '../../types/topNavigationBarTypes';
 import { useState } from 'react';
 import { color } from '../../styles';
 import { Label } from '../label';
