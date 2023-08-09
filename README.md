@@ -490,11 +490,14 @@ import { Tabs } from 'gangstarr-point-style';
 ...
 import { TextField } from 'gangstarr-point-style';
 ...
+
   const [inputValue, setInputValue] = useState('');
   const [isError, setIsError] = useState(false);
+
+  {/* 유효성 검증 함수*/}
   const onChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
-    if (e.target.value.length < 5) setIsError(true);
+    if (e.target.value.length < 5) setIsError(true);  {/* 유효성 검증 조건*/}
     else setIsError(false);
   };
 
@@ -521,7 +524,7 @@ import { TextField } from 'gangstarr-point-style';
 | state                 | 'inactive' \| 'focused' \| 'error' \| 'positive' \| 'activated' \| 'disable' | Textfield 컴포넌트의 상태를 나타냄                                                                         | ❎       |
 | id                    | string                                                                       | label의 `htmlFor`와 연결할 id를 의미함                                                                     | ❎       |
 | title                 | string                                                                       | label에 나타낼 텍스트                                                                                      | ❎       |
-| validate              | boolean                                                                      | 유효성 검증 여부 (유효성 검증이 필요하다면 유효성 함수를 작성해서 사용)                                    | ❎       |
+| validate              | boolean                                                                      | 유효성 검증 여부 (유효성 검증이 필요하다면 유효성을 검증해주는 함수를 작성해서 사용)                       | ❎       |
 | isError               | boolean                                                                      | 유효성 검증을 해야 할 때, 검증 결과에 따라서 스타일링을 다르게 해야 하므로 `isError`를 통해 상태를 관리함. | ❎       |
 | customErrorMessage    | string                                                                       | 유효성 검증에 통과하지 못했을 때 보여줄 메세지                                                             | 🅾️       |
 | customSuccessMessage  | string                                                                       | 유효성 검증에 통과했을 때 보여줄 메세지                                                                    | 🅾️       |
