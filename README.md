@@ -52,17 +52,24 @@ const Component = styled.div`
 
 ### AppBar
 
-{한줄 소개 지우고 이 자리에 작성}
+디테일 페이지에서 사용하는 AppBar입니다.
 
 예시 코드
 
 ```jsx
-예시코드 작성
+import { AppBar } from 'gangstarr-point-styler';
+...
+<AppBar title='페이지 이름' size='full' icon={[{iconName: 'add', func: () => {console.log('클릭')}}]} />
+...
 ```
 
-| 속성 | 값  | 설명 | 필수여부 |
-| ---- | --- | ---- | -------- |
-|      |     |      |          |
+| 속성    | 값                                               | 설명                                                                                                                                                       | 필수여부 |
+| ------- | ------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| size    | 'medium','large','full'                          | AppBar의 크기를 결정합니다. <br /> medium은 width값 650px, large의 경우 width값 1024px, full의 경우 width 1024px, height 56px로 변경됩니다.                | ❎       |
+| title   | string                                           | AppBar 사용시 현재 페이지의 이름을 표시합니다. <br/> size가 full일때 title은 가운데 표시됩니다.                                                            | ❎       |
+| icon    | [{iconName: iconsKey, func: ()=>void}]           | AppBar 오른쪽에 위치할 아이콘 버튼입니다. <br/> iconName은 Icon 컴포넌트의 속성(iconsKey)을 작성합니다. func은 버튼 클릭시 작동할 함수를 작성합니다.       | ❎       |
+| text    | [{textName: string, func: ()=>void}]             | AppBar 오른쪽에 위치할 텍스트 버튼입니다. <br/> TextName은 버튼의 이름을 결정합니다. func은 버튼 클릭시 작동할 함수를 작성합니다.                          | ❎️      |
+| counter | {text: string, count: number, func: () => void } | AppBar 오른쪽에 위치할 텍스트 버튼입니다. <br/> Text은 버튼의 이름을 결정합니다. count는 number가 들어갑니다. func은 버튼 클릭시 작동할 함수를 작성합니다. | ❎️      |
 
 ### Banner
 
@@ -114,17 +121,22 @@ import { Button } from 'gangstarr-point-styler';
 
 ### Button_FAB
 
-{한줄 소개 지우고 이 자리에 작성}
+페이지 하단에서 페이지 상단으로 이동하거나 추가버튼을 사용하는 버튼입니다.
 
 예시 코드
 
 ```jsx
-예시코드 작성
+import { ButtonFab } from 'gangstarr-point-styler';
+...
+ <ButtonFab mode={'add'} func={()=>{console.log("클릭")}} position={'center'}/>
+...
 ```
 
-| 속성 | 값  | 설명 | 필수여부 |
-| ---- | --- | ---- | -------- |
-|      |     |      |          |
+| 속성     | 값                        | 설명                                            | 필수여부 |
+| -------- | ------------------------- | ----------------------------------------------- | -------- |
+| mode     | 'add','up'                | 추가 버튼과 상단이동 버튼의 모양을 결정 합니다. | 🅾️       |
+| func     | ()=>void                  | 버튼 클릭시 동작할 함수를 작성합니다.           | 🅾️       |
+| position | 'left', 'center', 'right' | 버튼 노출 위치를 결정합니다.                    | 🅾️       |
 
 ### Card
 
@@ -293,17 +305,20 @@ import { Dialog } from 'gangstarr-point-styler';
 
 ### Icon
 
-{한줄 소개 지우고 이 자리에 작성}
+다양한 아이콘을 표현하기 위한 컴포넌트입니다.
 
 예시 코드
 
 ```jsx
-예시코드 작성
+import { Icon } from 'gangstarr-point-styler';
+...
+<Icon name={'add'} />
+...
 ```
 
-| 속성 | 값  | 설명 | 필수여부 |
-| ---- | --- | ---- | -------- |
-|      |     |      |          |
+| 속성 | 값       | 설명                                                                        | 필수여부 |
+| ---- | -------- | --------------------------------------------------------------------------- | -------- |
+| name | iconsKey | name을 string 형식으로 작성합니다. ' ' 작성시 스니펫을 확인 할 수 있습니다. | 🅾️       |
 
 ### Item
 
@@ -346,17 +361,67 @@ import { Label } from 'gangstarr-point-styler';
 
 ### Navigation
 
-{한줄 소개 지우고 이 자리에 작성}
+#### TopNavigation
+
+통증 관리 시스템 상단에서 페이지 이동을 담당하는 NavigationBar 입니다.
 
 예시 코드
 
 ```jsx
-예시코드 작성
+import { TopNavigationBar } from 'gangstarr-point-styler';
+...
+ <TopNavigationBar
+        tapMenuLists={[
+          { tapName: '수강관리', path: 'about' },
+          { tapName: '수강관리2', path: 'about2' },
+          { tapName: '수강관리3', path: 'about3' },
+          { tapName: '수강관리4', path: 'about4' },
+          { tapName: '수강관리5', path: 'about5' },
+        ]}
+        userData={{ name: '최동환', label: '플랜이용중' }}
+      />
+...
 ```
 
-| 속성 | 값  | 설명 | 필수여부 |
-| ---- | --- | ---- | -------- |
-|      |     |      |          |
+| 속성         | 값                                  | 설명                                     | 필수여부 |
+| ------------ | ----------------------------------- | ---------------------------------------- | -------- |
+| tapMenuLists | [{ tapName: string, path: string }] | TopNavigationBar의 탭 버튼을 담당합니다. | ❎       |
+| userData     | {name: string, label: string}       | 로그인시 보여질 유저 데이터입니다.       | ❎       |
+
+#### BotNavigation
+
+통증 관리 시스템 하단에서 페이지 이동을 담당하는 NavigationBar 입니다.
+
+예시 코드
+
+```jsx
+import { BotNavigationBar } from 'gangstarr-point-styler';
+...
+<BottomNavigationBar
+        tabNameLists={{
+          home: 'home',
+          reservation: 'reservation',
+          patient: 'patient',
+          center: 'center',
+          mypage: 'mypage',
+        }}
+        onClickHome={() => navigate('/home')}
+        onClickReservation={() => navigate('/reserve')}
+        onClickPatient={() => navigate('/partiend')}
+        onClickCenter={() => navigate('/center')}
+        onClickMypage={() => navigate('/mypage')}
+      />
+...
+```
+
+| 속성               | 값                                                                                 | 설명                                     | 필수여부 |
+| ------------------ | ---------------------------------------------------------------------------------- | ---------------------------------------- | -------- |
+| tabNameLists       | home: string, reservation: string, patient: string, center: string, mypage: string | BotNavigationBar의 탭 메뉴를 담당합니다. | 🅾️       |
+| onClickHome        | () => void                                                                         | 버튼 클릭시 동작할 함수를 작성합니다.    | 🅾️       |
+| onClickReservation | () => void                                                                         | 버튼 클릭시 동작할 함수를 작성합니다.    | 🅾️       |
+| onClickPatient     | () => void                                                                         | 버튼 클릭시 동작할 함수를 작성합니다.    | 🅾️       |
+| onClickCenter      | () => void                                                                         | 버튼 클릭시 동작할 함수를 작성합니다.    | 🅾️       |
+| onClickMypage      | () => void                                                                         | 버튼 클릭시 동작할 함수를 작성합니다.    | 🅾️       |
 
 ### Picker
 
@@ -574,17 +639,34 @@ import { Thumbnails } from 'gangstarr-point-styler';
 
 ### SnackBar
 
-{한줄 소개 지우고 이 자리에 작성}
+통증 관리 시스템 이용중 보여질 SnackBar 입니다.
 
 예시 코드
+**올바른 사용을 위해 반드시 아래의 형태로 작성해주시기 바랍니다.**
 
 ```jsx
-예시코드 작성
+import { SnackBar } from 'gangstarr-point-styler';
+...
+ const [snackbarMessage, setSnackbarMessage] = useState('');
+...
+<>
+    {snackbarMessage && (
+      <SnackBar
+        description={snackbarMessage}
+        time={3000}
+        setSnackbarMessage={setSnackbarMessage}></SnackBar>
+    )}
+</>
+...
 ```
 
-| 속성 | 값  | 설명 | 필수여부 |
-| ---- | --- | ---- | -------- |
-|      |     |      |          |
+| 속성               | 값                        | 설명                                                     | 필수여부 |
+| ------------------ | ------------------------- | -------------------------------------------------------- | -------- |
+| description        | string                    | SnackBar로 보여줄 각종 메세지 입니다.                    | 🅾️       |
+| time               | number                    | SnackBar가 노출 되는 시간입니다. ms 기준으로 전달합니다. | 🅾️       |
+| setSnackbarMessage | (message: string) => void | SnackBar를 작동하기 위한 트리거 입니다.                  | 🅾️       |
+| usedAppBar         | boolean                   | BotNavigation 유무에 따라 나타나는 위치를 결정합니다.    | ❎       |
+| widthSize          | number                    | SnackBar의 사이즈를 결정합니다.                          | ❎       |
 
 ## Demo
 
