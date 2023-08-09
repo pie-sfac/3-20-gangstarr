@@ -450,7 +450,7 @@ import { TimePicker } from 'gangstarr-point-style';
 
 ### Tabs
 
-{한줄 소개 지우고 이 자리에 작성}
+최대 10개의 Tabs를 노출함. tabLists의 요소가 10개를 초과한다면 0 ~ 9번 인덱스의 요소를 노출함.
 
 예시 코드
 
@@ -459,7 +459,7 @@ import { TimePicker } from 'gangstarr-point-style';
 import { Tabs } from 'gangstarr-point-style';
 ...
 
-  const tabList = [
+  const tabLists = [
     { path: 'tab1', name: 'tab1', callback: () => { setCurrentTab('tab1') } },
     { path: 'tab2', name: 'tab2', callback: () => { setCurrentTab('tab2') } },
     { path: 'tab3', name: 'tab3', callback: () => { setCurrentTab('tab3') }  },
@@ -470,7 +470,7 @@ import { Tabs } from 'gangstarr-point-style';
 
   ...
 
-    <Tabs tabLists={tabList} currentTab={currentTab} />
+    <Tabs tabLists={tabLists} currentTab={currentTab} />
 
   ...
 ```
