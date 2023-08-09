@@ -52,7 +52,7 @@ const SnackBar = ({
   const [isShowing, setIsShowing] = useState(true);
   const [isVisible, setIsVisible] = useState(true);
   const snackBarShowTime = setTimeout(() => setIsShowing(false), time);
-  const fadeTime = setTimeout(() => setIsVisible(false), time - 300);
+  const fadeTime = setTimeout(() => setIsVisible(false), time - 200);
 
   useEffect(() => {
     return () => {
