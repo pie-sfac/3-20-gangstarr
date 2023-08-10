@@ -1,11 +1,8 @@
-import { Reset } from 'styled-reset';
+import React from 'react';
+import PoinTStyleProvider from './lib/styles/StyleProvider';
 
 function App() {
-  return (
-    <>
-      <Reset />
-    </>
-  );
+  return <PoinTStyleProvider></PoinTStyleProvider>;
 }
 
 export default App;

@@ -1,21 +1,25 @@
 {
-  "name": "3-20-gangstarr",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "name": "gangstarr-point-styler",
+  "private": false,
+  "version": "1.0.0",
+  "description": "Point Design System Gangstarr 라이브러리 (업데이트 1.0.0 : npm Major.ver 업데이트)",
+  "main": "dist/lib/index.js",
+  "types": "dist/lib/index.d.ts",
+  "module": "dist/lib/index.js",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint src --ext ts,tsx --cache --max-warnings 0",
     "format": "prettier --cache --write .",
     "preview": "vite preview",
-    "prepare": "husky install"
+    "copy-files": "copyfiles -u 1 src/lib/styles/**/*.css src/lib/styles/**/fonts/**/*.woff src/lib/styles/**/fonts/**/*.woff2 src/lib/assets/*.png dist/",
+    "prepare": "rm -rf dist && mkdir dist && tsc && npm run copy-files"
   },
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "styled-components": "^6.0.4",
-    "styled-reset": "^4.5.1"
+    "swiper": "^10.1.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.14",
@@ -23,6 +27,7 @@
     "@typescript-eslint/eslint-plugin": "^5.62.0",
     "@typescript-eslint/parser": "^5.62.0",
     "@vitejs/plugin-react": "^4.0.1",
+    "copyfiles": "^2.4.1",
     "eslint": "^8.45.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-jsx-a11y": "^6.7.1",
@@ -32,6 +37,7 @@
     "eslint-plugin-react-refresh": "^0.4.1",
     "husky": "^8.0.0",
     "prettier": "^3.0.0",
+    "rimraf": "^5.0.1",
     "typescript": "^5.1.6",
     "vite": "^4.4.0"
   }
