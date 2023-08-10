@@ -1,8 +1,8 @@
 {
   "name": "gangstarr-point-styler",
   "private": false,
-  "version": "0.1.0",
-  "description": "Point Design System Gangstarr 라이브러리 (업데이트 0.1.0 : npm minor.ver 업데이트)",
+  "version": "1.0.0",
+  "description": "Point Design System Gangstarr 라이브러리 (업데이트 1.0.0 : npm Major.ver 업데이트)",
   "main": "dist/lib/index.js",
   "types": "dist/lib/index.d.ts",
   "module": "dist/lib/index.js",
