@@ -1,8 +1,8 @@
 {
   "name": "gangstarr-point-styler",
   "private": false,
-  "version": "1.0.0",
-  "description": "Point Design System Gangstarr 라이브러리 (업데이트 1.0.0 : npm Major.ver 업데이트)",
+  "version": "1.0.1",
+  "description": "Point Design System Gangstarr 라이브러리 (업데이트 1.0.1 : svg 이미지 업로드 로직 추가)",
   "main": "dist/lib/index.js",
   "types": "dist/lib/index.d.ts",
   "module": "dist/lib/index.js",
@@ -12,7 +12,7 @@
     "lint": "eslint src --ext ts,tsx --cache --max-warnings 0",
     "format": "prettier --cache --write .",
     "preview": "vite preview",
-    "copy-files": "copyfiles -u 1 src/lib/styles/**/*.css src/lib/styles/**/fonts/**/*.woff src/lib/styles/**/fonts/**/*.woff2 src/lib/assets/*.png dist/",
+    "copy-files": "copyfiles -u 1 src/lib/styles/**/*.css src/lib/styles/**/fonts/**/*.woff src/lib/styles/**/fonts/**/*.woff2 src/lib/assets/*.png src/lib/assets/*.svg dist/",
     "prepare": "rm -rf dist && mkdir dist && tsc && npm run copy-files"
   },
   "dependencies": {
